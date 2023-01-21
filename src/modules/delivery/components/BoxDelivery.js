@@ -31,7 +31,7 @@ const BoxDelivery = () => {
 
 	const onSubmit = (data) => {
 		console.log(JSON.stringify(data));
-		setSubmitValue(data)
+		setSubmitValue(data);
     setFinishedStep([1, 2]);
     setCurrentStep(2);
 	}

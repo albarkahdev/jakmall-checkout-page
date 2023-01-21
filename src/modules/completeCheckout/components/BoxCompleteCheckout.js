@@ -8,6 +8,8 @@ import BoxCenter from "../../../ui/BoxCenter/BoxCenter";
 import Text from "../../../ui/Text/Text";
 import BoxOrderDescription from "./BoxOrderDescription";
 import Space from "../../../ui/Space/Space";
+import { useListCostAndTotal } from "../../../hooks/useListCostAndTotal";
+import useStoreCheckout from "../../../stores/storeCheckout";
 
 const listCost = [
   {
@@ -39,6 +41,9 @@ const listAdditionalSummary = [
 ];
 
 const BoxCompleteCheckout = () => {
+  const { orderId } = useStoreCheckout();
+  const [listCost, totalCost] = useListCostAndTotal();
+
   return (
     <BoxContent>
       <BoxNavigation
@@ -51,7 +56,7 @@ const BoxCompleteCheckout = () => {
               title="Thank you"
               isChekboxAvailable={false}
             />
-            <Text type="black-large">Order ID : XXKYB</Text>
+            <Text type="black-large">Order ID : {orderId}</Text>
             <Space v={2} />
             <Text type="black-large">Your order will be delivered today with ASDASDASD</Text>
             <BoxNavigation
@@ -64,7 +69,7 @@ const BoxCompleteCheckout = () => {
           listCost={listCost}
           listAdditionalSummary={listAdditionalSummary}
           totalItemPurchashed={10}
-          totalCost="505,900"
+          totalCost={totalCost}
           labelButton=""
         />
       </BoxFormAndSummary>

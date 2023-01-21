@@ -2,6 +2,7 @@ import styled from "styled-components";
 
 import RadioBox from "../../../ui/RadioBox/RadioBox";
 import useStoreCheckout from '../../../stores/storeCheckout';
+import Text from "../../../ui/Text/Text";
 
 const Wrapper = styled.div`
   display: grid;
@@ -24,13 +25,14 @@ const listRadioBoxShipment = [
   },
 ];
 
-const ShipementFormGroup = () => {
+const ShipementFormGroup = ({ onChange, error }) => {
   const {
     shipment,
     setShipment,
   } = useStoreCheckout();
 
   const handleChangeRadio = (label, value) => {
+    onChange("shipment");
     setShipment({
       provider: label,
       costShipement: value,
@@ -52,6 +54,7 @@ const ShipementFormGroup = () => {
           )
         })
       }
+      {error && <Text type="orange-medium">{error}</Text>}
     </Wrapper>
   )
 }

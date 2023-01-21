@@ -2,6 +2,7 @@ import styled from "styled-components";
 
 import RadioBox from "../../../ui/RadioBox/RadioBox";
 import useStoreCheckout from '../../../stores/storeCheckout';
+import Text from "../../../ui/Text/Text";
 
 const Wrapper = styled.div`
   display: grid;
@@ -24,11 +25,16 @@ const listPaymentType = [
   },
 ]
 
-const PaymentFormGroup = () => {
+const PaymentFormGroup = ({ onChange, error }) => {
   const {
     paymentType,
     setPaymentType,
   } = useStoreCheckout();
+
+  const handleChangeRadio = (label) => {
+    onChange("paymentType");
+    setPaymentType(label)
+  }
 
   return (
     <Wrapper>
@@ -40,11 +46,12 @@ const PaymentFormGroup = () => {
               isSelected={paymentType === label}
               label={label}
               value={value}
-              onClick={() => setPaymentType(label)}
+              onClick={() => handleChangeRadio(label)}
             />
           )
         })
       }
+      {error && <Text type="orange-medium">{error}</Text>}
     </Wrapper>
   )
 }

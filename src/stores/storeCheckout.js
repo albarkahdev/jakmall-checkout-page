@@ -2,8 +2,8 @@ import { create } from 'zustand';
 import { persist } from 'zustand/middleware';
 
 const initialValue = {
-  currentStep: 2,
-  finishedStep: [1, 2],
+  currentStep: 3,
+  finishedStep: [1, 2, 3],
   totalPayment: 0,
   costOfGoods: 500_000,
   deliveryDetails: {

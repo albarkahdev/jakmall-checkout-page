@@ -1,3 +1,5 @@
+import { useMemo, useState } from "react";
+
 import BoxContent from "../../../ui/BoxContent/BoxContent";
 import BoxForm from "../../../ui/BoxForm/BoxForm";
 import BoxSummary from "../../../ui/BoxSummary/BoxSummary";
@@ -9,17 +11,79 @@ import PaymentFormGroup from "./PaymentFormGroup";
 import Space from "../../../ui/Space/Space";
 import useStoreCheckout from '../../../stores/storeCheckout';
 import { useListCostAndTotal } from "../../../hooks/useListCostAndTotal";
-
-const listAdditionalSummary = [
-  {
-    label: "Delivery estimation",
-    value: "today by GO-SEND",
-  },
-];
+import { generateOrderId } from "../../../utils/generateRandom";
 
 const BoxPayment = () => {
-  const { paymentType } = useStoreCheckout();
+  const [errors, setErrors] = useState({
+    shipment: "",
+    paymentType: "",
+  });
+
+  const {
+    shipment,
+    paymentType,
+    setFinishedStep,
+    setCurrentStep,
+    setOrderId,
+  } = useStoreCheckout();
   const [listCost, totalCost] = useListCostAndTotal();
+
+  const listAdditionalSummary = useMemo(() => {
+    let valueDeliveryProvider = "";
+    switch (shipment.provider) {
+      case "GO-SEND":
+        valueDeliveryProvider = "today by GO-SEND"
+        break;
+      case "JNE":
+        valueDeliveryProvider = "2 days by JNE"
+        break;
+      case "Personal Courier":
+        valueDeliveryProvider = "1 day by Personal Courier"
+        break;
+      default:
+        break;
+    }
+
+    return [
+      {
+        label: "Delivery estimation",
+        value: valueDeliveryProvider,
+      },
+    ];
+  }, [shipment]);
+
+  const createAndSetOrderId = () => {
+    const orderId = generateOrderId();
+    setOrderId(orderId);
+  }
+
+  const handleSubmit = () => {
+    if (paymentType !== "" && shipment.provider !== "") {
+      setFinishedStep([1, 2, 3]);
+      setCurrentStep(3);
+      createAndSetOrderId()
+    } else {
+      setErrors({
+        paymentType: paymentType === "" ? "Payment Type is required" : "",
+        shipment: shipment.provider === "" ? "Shipment is required" : "",
+      });
+    }
+  };
+
+  const handleSelectRadio = (label) => {
+    if (label === "shipment" && errors.shipment !== "") {
+      setErrors(prev => ({
+        paymentType: prev.paymentType,
+        shipment: "",
+      }));
+    }
+    if (label === "paymentType" && errors.paymentType !== "") {
+      setErrors(prev => ({
+        paymentType: "",
+        shipment: prev.shipment,
+      }));
+    }
+  };
 
   return (
     <BoxContent>
@@ -32,13 +96,13 @@ const BoxPayment = () => {
             title="Shipment"
             isChekboxAvailable={false}
           />
-          <ShipementFormGroup />
+          <ShipementFormGroup onChange={handleSelectRadio} error={errors.shipment} />
           <Space v={50} />
           <HeaderForm
             title="Payment"
             isChekboxAvailable={false}
           />
-          <PaymentFormGroup />
+          <PaymentFormGroup onChange={handleSelectRadio} error={errors.paymentType} />
         </BoxForm>
         <BoxSummary
           listCost={listCost}
@@ -46,6 +110,7 @@ const BoxPayment = () => {
           totalItemPurchashed={10}
           labelButton={`Pay with ${paymentType}`}
           totalCost={totalCost}
+          submit={handleSubmit}
         />
       </BoxFormAndSummary>
     </BoxContent>

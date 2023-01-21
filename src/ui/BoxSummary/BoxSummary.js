@@ -27,12 +27,16 @@ const BoxSummary = ({
       <Space v={5} />
       <Text type="black-medium">{totalItemPurchashed} items purchased</Text>
       {
-        listAdditionalSummary?.map((addtionalDescription, idx) => {
+        listAdditionalSummary?.map(({ label, value }, idx) => {
+          if (!value) {
+            return <></>;
+          }
+          
           return (
             <AdditionalSummaryDescription
               key={idx}
-              label={addtionalDescription.label}
-              value={addtionalDescription.value}
+              label={label}
+              value={value}
             />
           )
         })
