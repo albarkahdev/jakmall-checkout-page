@@ -6,22 +6,39 @@ const Wrapper = styled.div`
   grid-template-columns: 2fr 1fr;
 `;
 
-const CostDescription = ({ label, value, isTotal }) => {
-  if (isTotal) {
-    return (
-      <Wrapper>
-        <Text type="orange-xl">{label}</Text>
-        <Text type="orange-xl-right">{value}</Text>
-      </Wrapper>
-    );
-  }
+const WrapperText = styled.div`
+  display: flex;
+  flex-direction: row;
+`;
 
-  return (
-    <Wrapper>
-      <Text type="black-medium">{label}</Text>
-      <Text type="black-medium-bold">{value}</Text>
-    </Wrapper>
-  )
+const CostDescription = ({ label, value, type = "normal" }) => {
+  switch (type) {
+    case "total":
+      return (
+        <Wrapper>
+          <Text type="orange-xl">{label}</Text>
+          <Text type="orange-xl-right">{value}</Text>
+        </Wrapper>
+      );
+    case "shipment-provider":
+      return (
+        <Wrapper>
+          <WrapperText>
+            <Text type="black-medium-bold">{label}</Text>
+            <Text type="black-medium">&nbsp;shipment</Text>
+          </WrapperText>
+          <Text type="black-medium-bold-right">{value}</Text>
+        </Wrapper>
+      );
+  
+    default:
+      return (
+        <Wrapper>
+          <Text type="black-medium">{label}</Text>
+          <Text type="black-medium-bold-right">{value}</Text>
+        </Wrapper>
+      );
+  }
 };
 
 export default CostDescription;

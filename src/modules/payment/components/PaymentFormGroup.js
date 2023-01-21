@@ -1,14 +1,30 @@
 import styled from "styled-components";
-import TextInput from "../../../ui/TextInput/TextInput";
+import RadioBox from "../../../ui/RadioBox/RadioBox";
 
 const Wrapper = styled.div`
-  
+  display: grid;
+  grid-gap: 10px;
+  grid-template-columns: auto auto auto;
 `;
 
 const PaymentFormGroup = () => {
   return (
     <Wrapper>
-      <TextInput label="Dropshipper name" typeInput="text" />
+      <RadioBox
+        isSelected
+        label="e-Wallet"
+        value="1,500,000 left"
+      />
+      <RadioBox
+        isSelected={false}
+        label="Bank Transfer"
+        value=""
+      />
+      <RadioBox
+        isSelected={false}
+        label="Virtual Account"
+        value=""
+      />
     </Wrapper>
   )
 }

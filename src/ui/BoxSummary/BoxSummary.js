@@ -4,6 +4,8 @@ import BoxCost from '../BoxCost/BoxCost';
 import CostDescription from '../CostDescription/CostDescription';
 import Button from '../Button/Button';
 import Space from '../Space/Space';
+import BorderHorizontal from '../BorderHorizontal/BorderHorizontal';
+import AdditionalSummaryDescription from '../AdditionalSummaryDescription/AdditionalSummaryDescription';
 
 const Wrapper = styled.div`
   border-left: 1px solid #FFE8CC;
@@ -15,14 +17,27 @@ const Wrapper = styled.div`
 const BoxSummary = ({
   totalItemPurchashed,
   listCost,
+  listAdditionalSummary,
   totalCost,
   labelButton
 }) => {
   return (
     <Wrapper>
       <Text type="orange-xl">Summary</Text>
-        <Space v={5} />
+      <Space v={5} />
       <Text type="black-medium">{totalItemPurchashed} items purchased</Text>
+      {
+        listAdditionalSummary?.map((addtionalDescription, idx) => {
+          return (
+            <AdditionalSummaryDescription
+              key={idx}
+              label={addtionalDescription.label}
+              value={addtionalDescription.value}
+            />
+          )
+        })
+      }
+      <Space v={200} />
       <BoxCost>
         {
           listCost?.map((itemCost, idx) => {
@@ -31,6 +46,7 @@ const BoxSummary = ({
               <>
                 <CostDescription
                   key={idx}
+                  type={itemCost.type}
                   label={itemCost.label}
                   value={itemCost.value}
                 />
@@ -41,7 +57,7 @@ const BoxSummary = ({
         }
         <Space v={15} />
         <CostDescription
-          isTotal
+          type="total"
           label="Total"
           value={totalCost}
         />

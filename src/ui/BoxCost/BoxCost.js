@@ -1,7 +1,8 @@
 import styled from 'styled-components';
 
 const Wrapper = styled.div`
-  margin-top: 70%;
+  position: absolute;
+  bottom: 20px;
 `;
 
 const BoxForm = ({ children }) => {

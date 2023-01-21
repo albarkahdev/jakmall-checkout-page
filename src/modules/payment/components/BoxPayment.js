@@ -11,11 +11,25 @@ import Space from "../../../ui/Space/Space";
 const listCost = [
   {
     label: "Cost of goods",
-    value: "500,000"
+    value: "500,000",
+    type: "normal",
   },
   {
     label: "Dropshipping Fee",
-    value: "5,900"
+    value: "5,900",
+    type: "normal",
+  },
+  {
+    label: "GO-SEND",
+    value: "15,000",
+    type: "shipment-provider",
+  },
+];
+
+const listAdditionalSummary = [
+  {
+    label: "Delivery estimation",
+    value: "today by GO-SEND",
   },
 ];
 
@@ -41,8 +55,9 @@ const BoxPayment = () => {
         </BoxForm>
         <BoxSummary
           listCost={listCost}
+          listAdditionalSummary={listAdditionalSummary}
           totalItemPurchashed={10}
-          labelButton="Continue to Payment"
+          labelButton="Pay with e-Wallet"
           totalCost="505,900"
         />
       </BoxFormAndSummary>

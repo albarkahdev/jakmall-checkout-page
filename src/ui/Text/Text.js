@@ -10,6 +10,12 @@ const TextBlackMediumBold = styled.p`
   color: #575667;
   font-size: 12px;
   font-weight: bold;
+`;
+
+const TextBlackMediumBoldRight = styled.p`
+  color: #575667;
+  font-size: 12px;
+  font-weight: bold;
   text-align: end;
 `;
 
@@ -59,12 +65,21 @@ const TextOrangeXXL = styled.p`
   line-height: 44px;
 `;
 
+const TextCustomGreen = styled.p`
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 19px;
+  color: #1BD97B;
+`;
+
 const Text = ({ type = "white-medium", children }) => {
   switch (type) {
     case "black-medium":
       return <TextBlackMedium>{children}</TextBlackMedium>;
     case "black-medium-bold":
       return <TextBlackMediumBold>{children}</TextBlackMediumBold>;
+    case "black-medium-bold-right":
+      return <TextBlackMediumBoldRight>{children}</TextBlackMediumBoldRight>;
     case "black-large":
       return <TextBlackLarge>{children}</TextBlackLarge>;
     case "white-medium":
@@ -79,6 +94,8 @@ const Text = ({ type = "white-medium", children }) => {
       return <TextOrangeXLRight>{children}</TextOrangeXLRight>;
     case "orange-xxl":
       return <TextOrangeXXL>{children}</TextOrangeXXL>;
+    case "custom-green":
+      return <TextCustomGreen>{children}</TextCustomGreen>;
     default:
       return <TextWhiteMedium>{children}</TextWhiteMedium>;
   }
