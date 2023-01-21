@@ -51,4 +51,4 @@ export const useListCostAndTotal = () => {
   }, [listCost]);
 
   return [listCost, totalCost];
-}
+};

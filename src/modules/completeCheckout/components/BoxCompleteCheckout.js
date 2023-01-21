@@ -10,6 +10,8 @@ import BoxOrderDescription from "./BoxOrderDescription";
 import Space from "../../../ui/Space/Space";
 import { useListCostAndTotal } from "../../../hooks/useListCostAndTotal";
 import useStoreCheckout from "../../../stores/storeCheckout";
+import generateDescriptionByShipmentProvider from "../../../utils/generateDescriptionByShipmentProvider";
+import { useListAdditionalSummary } from "../../../hooks/useListAdditionalSummary";
 
 const listCost = [
   {
@@ -29,20 +31,12 @@ const listCost = [
   },
 ];
 
-const listAdditionalSummary = [
-  {
-    label: "Delivery estimation",
-    value: "today by GO-SEND",
-  },
-  {
-    label: "Payment method",
-    value: "Bank Transfer",
-  },
-];
-
 const BoxCompleteCheckout = () => {
-  const { orderId } = useStoreCheckout();
+  const { orderId, shipment } = useStoreCheckout();
   const [listCost, totalCost] = useListCostAndTotal();
+  const [listAdditionalSummary] = useListAdditionalSummary({ isShowAll: true });
+  let descriptionShipmentProvider =
+    generateDescriptionByShipmentProvider(shipment.provider);
 
   return (
     <BoxContent>
@@ -58,7 +52,7 @@ const BoxCompleteCheckout = () => {
             />
             <Text type="black-large">Order ID : {orderId}</Text>
             <Space v={2} />
-            <Text type="black-large">Your order will be delivered today with ASDASDASD</Text>
+            <Text type="black-large">Your order will be delivered {descriptionShipmentProvider}</Text>
             <BoxNavigation
               label="Go to homepage"
               leftPadding={0}

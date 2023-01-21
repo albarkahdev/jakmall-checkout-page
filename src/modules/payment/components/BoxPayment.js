@@ -1,4 +1,4 @@
-import { useMemo, useState } from "react";
+import { useState } from "react";
 
 import BoxContent from "../../../ui/BoxContent/BoxContent";
 import BoxForm from "../../../ui/BoxForm/BoxForm";
@@ -12,13 +12,13 @@ import Space from "../../../ui/Space/Space";
 import useStoreCheckout from '../../../stores/storeCheckout';
 import { useListCostAndTotal } from "../../../hooks/useListCostAndTotal";
 import { generateOrderId } from "../../../utils/generateRandom";
+import { useListAdditionalSummary } from "../../../hooks/useListAdditionalSummary";
 
 const BoxPayment = () => {
   const [errors, setErrors] = useState({
     shipment: "",
     paymentType: "",
   });
-
   const {
     shipment,
     paymentType,
@@ -27,30 +27,7 @@ const BoxPayment = () => {
     setOrderId,
   } = useStoreCheckout();
   const [listCost, totalCost] = useListCostAndTotal();
-
-  const listAdditionalSummary = useMemo(() => {
-    let valueDeliveryProvider = "";
-    switch (shipment.provider) {
-      case "GO-SEND":
-        valueDeliveryProvider = "today by GO-SEND"
-        break;
-      case "JNE":
-        valueDeliveryProvider = "2 days by JNE"
-        break;
-      case "Personal Courier":
-        valueDeliveryProvider = "1 day by Personal Courier"
-        break;
-      default:
-        break;
-    }
-
-    return [
-      {
-        label: "Delivery estimation",
-        value: valueDeliveryProvider,
-      },
-    ];
-  }, [shipment]);
+  const [listAdditionalSummary] = useListAdditionalSummary({ isShowAll: false });
 
   const createAndSetOrderId = () => {
     const orderId = generateOrderId();
