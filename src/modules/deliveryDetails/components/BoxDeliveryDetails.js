@@ -26,6 +26,17 @@ const listStep = [
   }
 ];
 
+const listCost = [
+  {
+    label: "Cost of goods",
+    value: "500,000"
+  },
+  {
+    label: "Dropshipping Fee",
+    value: "5,900"
+  },
+]
+
 const BoxDeliveryDetails = () => {
   return (
     <BoxCheckout>
@@ -44,9 +55,12 @@ const BoxDeliveryDetails = () => {
             />
             <FormGroup />
           </BoxForm>
-          <BoxSummary>
-            
-          </BoxSummary>
+          <BoxSummary
+            listCost={listCost}
+            totalItemPurchashed={10}
+            labelButton="Continue to Payment"
+            totalCost="505,900"
+          />
         </BoxFormAndSummary>
       </BoxContent>
     </BoxCheckout>

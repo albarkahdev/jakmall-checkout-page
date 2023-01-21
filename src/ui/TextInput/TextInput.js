@@ -67,7 +67,7 @@ const XIcon = styled(FiX)`
 `;
 
 const TextInput = ({
-    type = "wrong",
+    type = "correct",
     typeInput,
     label,
   }) => {

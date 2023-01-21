@@ -6,6 +6,13 @@ const TextBlackMedium = styled.p`
   font-weight: 500;
 `;
 
+const TextBlackMediumBold = styled.p`
+  color: #575667;
+  font-size: 12px;
+  font-weight: bold;
+  text-align: end;
+`;
+
 const TextBlackLarge = styled.p`
   color: #575667;
   font-size: 14px;
@@ -37,6 +44,14 @@ const TextOrangeXL = styled.p`
   line-height: 29px;
 `;
 
+const TextOrangeXLRight = styled.p`
+  color: #FF8A00;
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 29px;
+  text-align: end;
+`;
+
 const TextOrangeXXL = styled.p`
   color: #FF8A00;
   font-weight: 700;
@@ -48,6 +63,8 @@ const Text = ({ type = "white-medium", children }) => {
   switch (type) {
     case "black-medium":
       return <TextBlackMedium>{children}</TextBlackMedium>;
+    case "black-medium-bold":
+      return <TextBlackMediumBold>{children}</TextBlackMediumBold>;
     case "black-large":
       return <TextBlackLarge>{children}</TextBlackLarge>;
     case "white-medium":
@@ -58,6 +75,8 @@ const Text = ({ type = "white-medium", children }) => {
       return <TextOrangeLarge>{children}</TextOrangeLarge>;
     case "orange-xl":
       return <TextOrangeXL>{children}</TextOrangeXL>;
+    case "orange-xl-right":
+      return <TextOrangeXLRight>{children}</TextOrangeXLRight>;
     case "orange-xxl":
       return <TextOrangeXXL>{children}</TextOrangeXXL>;
     default:
