@@ -18,7 +18,7 @@ const FormGroup = ({ register }) => {
   return (
     <Wrapper>
       <DetailsFormGroup register={register} />
-      {/* <DropshipperFormGroup register={register} /> */}
+      <DropshipperFormGroup register={register} />
     </Wrapper>
   )
 }

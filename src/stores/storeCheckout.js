@@ -2,38 +2,38 @@ import { create } from 'zustand';
 import { persist } from 'zustand/middleware';
 
 const initialValue = {
-  current_step: 1,
-  total_payment: 0,
-  cost_of_goods: 500_000,
-  delivery_details: {
+  currentStep: 1,
+  totalPayment: 0,
+  costOfGoods: 500_000,
+  deliveryDetails: {
     email: "",
     phone: "",
-    delivery_address: "",
-    is_dropshipper: false,
-    dropshipper_name: "",
-    dropshipper_phone: "",
+    deliveryAddress: "",
+    isDropshipper: false,
+    dropshipperName: "",
+    dropshipperPhone: "",
   },
   shipment: {
     provider: "",
-    cost_shipement: 0,
+    costShipement: 0,
   },
-  payment_type: "",
-  order_id: null,
-  input_errors: {},
+  paymentType: "",
+  orderId: null,
+  inputErrors: {},
 };
 
 const useStoreCheckout = create(
   
     (set) => ({
-      currentStep: initialValue.current_step,
-      setStep: (v) => set({ current_step: v }),
+      currentStep: initialValue.currentStep,
+      setCurrentStep: (v) => set({ currentStep: v }),
       
-      total_payment: initialValue.total_payment,
-      setTotalPayment: (v) => set({ total_payment: v }),
+      totalPayment: initialValue.totalPayment,
+      setTotalPayment: (v) => set({ totalPayment: v }),
       
-      deliveryDetails: initialValue.delivery_details,
+      deliveryDetails: initialValue.deliveryDetails,
       setDeliveryDetail: (v) => set((prevState) =>
-        ({ delivery_details: {...prevState.delivery_details, ...v } })
+        ({ deliveryDetails: {...prevState.deliveryDetails, ...v } })
       ),
       
       shipment: initialValue.shipment,
@@ -41,14 +41,14 @@ const useStoreCheckout = create(
         ({ shipment: {...prevState.shipment, ...v } })
       ),
     
-      paymentType: initialValue.payment_type,
-      setPaymentType: (v) => set({ payment_type: v }),
+      paymentType: initialValue.paymentType,
+      setPaymentType: (v) => set({ paymentType: v }),
     
-      orderId: initialValue.order_id,
-      setOrderId: (v) => set({ order_id: v }),
+      orderId: initialValue.orderId,
+      setOrderId: (v) => set({ orderId: v }),
       
-      inputErrors: initialValue.input_errors,
-      setInputErrors: (v) => set({ input_errors: v }),
+      inputErrors: initialValue.inputErrors,
+      setInputErrors: (v) => set({ inputErrors: v }),
     })
 );
 

@@ -76,6 +76,7 @@ const TextInput = ({
     register = () => null,
     validation = {},
     error,
+    disabled = false,
   }) => {
   const [isActive, setIsActive] = useState(false);
 
@@ -123,6 +124,7 @@ const TextInput = ({
             ...validation,
           }
         )}
+        disabled={disabled}
       />
       <LabelInput
         isActive={isActive}

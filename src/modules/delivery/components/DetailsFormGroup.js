@@ -9,7 +9,7 @@ const Wrapper = styled.div`
 `;
 
 const DetailsFormGroup = ({ register }) => {
-  const { input_errors } = useStoreCheckout();
+  const { inputErrors } = useStoreCheckout();
 
   return (
     <Wrapper>
@@ -24,7 +24,7 @@ const DetailsFormGroup = ({ register }) => {
             message: "Email is invalid."
           },
         }}
-        error={input_errors?.["Email"]?.message || ""}
+        error={inputErrors?.["Email"]?.message || ""}
       />
       <Space v={10} />
       <TextInput
@@ -46,7 +46,7 @@ const DetailsFormGroup = ({ register }) => {
             message: "Max length phone number is 20"
           },
         }}
-        error={input_errors?.["Phone number"]?.message || ""}
+        error={inputErrors?.["Phone number"]?.message || ""}
       />
       <Space v={10} />
       <TextInput
@@ -60,7 +60,7 @@ const DetailsFormGroup = ({ register }) => {
             message: "Max length address is 120"
           },
         }}
-        error={input_errors?.["Adress"]?.message || ""}
+        error={inputErrors?.["Adress"]?.message || ""}
       />
     </Wrapper>
   )

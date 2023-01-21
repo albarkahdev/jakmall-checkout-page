@@ -11,11 +11,24 @@ const Wrapper = styled.div`
   margin-bottom: 36px;
 `;
 
-const HeaderForm = ({ title, isChekboxAvailable, labelCheckbox, isCheckboxChecked }) => {
+const HeaderForm = ({
+  title,
+  isChekboxAvailable,
+  labelCheckbox,
+  isCheckboxChecked,
+  onCheckboxChange = () => null,
+}) => {
   return (
     <Wrapper>
       <Text type="orange-xxl">{title}</Text>
-      {isChekboxAvailable && <Checkbox label={labelCheckbox} checked={isCheckboxChecked} />}
+      {
+        isChekboxAvailable
+        && <Checkbox
+          label={labelCheckbox}
+          checked={isCheckboxChecked}
+          onChange={onCheckboxChange}
+        />
+      }
     </Wrapper>
   )
 };

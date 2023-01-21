@@ -12,10 +12,10 @@ const CheckboxInput = styled.input`
   padding: 0;
 `;
 
-const Checkbox = ({ label, checked }) => {
+const Checkbox = ({ label, checked, onChange }) => {
   return (
     <Wrapper>
-      <CheckboxInput type="checkbox" checked={checked} />
+      <CheckboxInput type="checkbox" onChange={onChange} />
       <Space h={4} />
       <Text type="black-large">{label}</Text>
     </Wrapper>
