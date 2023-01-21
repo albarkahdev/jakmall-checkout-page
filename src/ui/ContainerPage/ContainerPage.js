@@ -1,9 +1,9 @@
 import styled from "styled-components";
 
 const Wrapper = styled.section`
-  position: relative;
-  /* width: 100%; */
-  padding-top: 30px;
+  width: 100%;
+  height: 100%;
+  padding: 100px 50px 0px 50px;
 `;
 
 

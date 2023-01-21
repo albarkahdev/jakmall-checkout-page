@@ -3,10 +3,9 @@ import StepItem from "../StepItem/StepItem";
 
 const Wrapper = styled.div`
   position: absolute;
-  width: 500px;
-  height: 70px;
-  left: 350px;
-  top: 5vh;
+  left: 33%;
+  top: 0px;
+  padding: 20px;
 
   background: #FFFAE6;
   border-radius: 35px;

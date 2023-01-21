@@ -1,4 +1,5 @@
 import BoxCheckout from "../../../ui/BoxCheckout/BoxCheckout";
+import BoxContent from "../../../ui/BoxContent/BoxContent";
 import Stepper from "../../../ui/Stepper/Stepper";
 import BoxForm from "../../../ui/BoxForm/BoxForm";
 import BoxSummary from "../../../ui/BoxSummary/BoxSummary";
@@ -26,9 +27,9 @@ const listStep = [
 
 const BoxDeliveryDetails = () => {
   return (
-    <>
+    <BoxCheckout>
       <Stepper list={listStep} />
-      <BoxCheckout>
+      <BoxContent>
         <BoxForm>
           <BoxNavigation
             label="Back to cart"
@@ -42,10 +43,10 @@ const BoxDeliveryDetails = () => {
           <FormGroup />
         </BoxForm>
         <BoxSummary>
-          
+
         </BoxSummary>
-      </BoxCheckout>
-    </>
+      </BoxContent>
+    </BoxCheckout>
   )
 };
 

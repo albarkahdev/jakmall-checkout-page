@@ -9,6 +9,7 @@ const Wrapper = styled.div`
   flex-direction: row;
   flex-wrap: wrap;
   align-items: center;
+  margin: 0px 20px;
   cursor: pointer;
 `;
 
