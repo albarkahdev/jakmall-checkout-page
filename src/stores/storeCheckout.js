@@ -3,6 +3,7 @@ import { persist } from 'zustand/middleware';
 
 const initialValue = {
   currentStep: 1,
+  finishedStep: [1],
   totalPayment: 0,
   costOfGoods: 500_000,
   deliveryDetails: {
@@ -27,6 +28,9 @@ const useStoreCheckout = create(
     (set) => ({
       currentStep: initialValue.currentStep,
       setCurrentStep: (v) => set({ currentStep: v }),
+
+      finishedStep: initialValue.finishedStep,
+      setFinishedStep: (v) => set({ finishedStep: v }),
       
       totalPayment: initialValue.totalPayment,
       setTotalPayment: (v) => set({ totalPayment: v }),

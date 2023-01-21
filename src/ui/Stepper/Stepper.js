@@ -22,7 +22,7 @@ const ChevronRight = styled(FiChevronRight)`
   color: #FF8A00;
 `;
 
-const Stepper = ({ list }) => {
+const Stepper = ({ list, onChange }) => {
   return (
     <Wrapper>
       {
@@ -35,6 +35,7 @@ const Stepper = ({ list }) => {
                 isActive={step.isActive}
                 numberStep={step.order}
                 textStep={step.name}
+                onClick={onChange}
               />
               {!isLastIndex && <ChevronRight />}
             </>

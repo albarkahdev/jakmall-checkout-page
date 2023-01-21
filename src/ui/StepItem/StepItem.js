@@ -13,10 +13,10 @@ const Wrapper = styled.div`
   cursor: pointer;
 `;
 
-const StepItem = ({ isActive, numberStep, textStep }) => {
+const StepItem = ({ isActive, numberStep, textStep, onClick }) => {
   if (isActive) {
     return (
-      <Wrapper>
+      <Wrapper onClick={() => onClick(numberStep)}>
         <CircleOrange type="dark">
           <Text type="white-medium">
             {numberStep}
@@ -29,7 +29,7 @@ const StepItem = ({ isActive, numberStep, textStep }) => {
   }
 
   return (
-    <Wrapper>
+    <Wrapper onClick={() => onClick(numberStep)}>
       <CircleOrange type="light">
         <Text type="orange-medium">
           {numberStep}
