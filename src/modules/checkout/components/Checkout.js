@@ -1,6 +1,7 @@
 import BoxCheckout from "../../../ui/BoxCheckout/BoxCheckout";
 import Stepper from "../../../ui/Stepper/Stepper";
 import BoxDeliveryDetails from "../../delivery/components/BoxDelivery";
+import BoxPayment from "../../payment/components/BoxPayment";
 
 const listStep = [
   {
@@ -11,7 +12,7 @@ const listStep = [
   {
     order: 2,
     name: "Payment",
-    isActive: false,
+    isActive: true,
   },
   {
     order: 3,
@@ -24,7 +25,8 @@ const Checkout = () => {
   return (
     <BoxCheckout>
       <Stepper list={listStep} />
-      <BoxDeliveryDetails />
+      {/* <BoxDeliveryDetails /> */}
+      <BoxPayment />
     </BoxCheckout>
   )
 };
