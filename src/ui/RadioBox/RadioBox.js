@@ -60,13 +60,14 @@ const RadioBox = ({
     isSelected,
     label,
     value = "",
+    onClick,
   }) => {
   const colorBase = isSelected
     ? colorBySelect.selected
     : colorBySelect.normal;
 
   return (
-    <Wrapper>
+    <Wrapper onClick={onClick}>
       <Input
         backgroundColor={colorBase.backgroundColor}
         borderColor={colorBase.borderColor}

@@ -7,24 +7,8 @@ import BoxFormAndSummary from "../../../ui/BoxFormAndSummary/BoxFormAndSummary";
 import ShipementFormGroup from "./ShipementFormGroup";
 import PaymentFormGroup from "./PaymentFormGroup";
 import Space from "../../../ui/Space/Space";
-
-const listCost = [
-  {
-    label: "Cost of goods",
-    value: "500,000",
-    type: "normal",
-  },
-  {
-    label: "Dropshipping Fee",
-    value: "5,900",
-    type: "normal",
-  },
-  {
-    label: "GO-SEND",
-    value: "15,000",
-    type: "shipment-provider",
-  },
-];
+import useStoreCheckout from '../../../stores/storeCheckout';
+import { useListCostAndTotal } from "../../../hooks/useListCostAndTotal";
 
 const listAdditionalSummary = [
   {
@@ -34,6 +18,9 @@ const listAdditionalSummary = [
 ];
 
 const BoxPayment = () => {
+  const { paymentType } = useStoreCheckout();
+  const [listCost, totalCost] = useListCostAndTotal();
+
   return (
     <BoxContent>
       <BoxNavigation
@@ -57,8 +44,8 @@ const BoxPayment = () => {
           listCost={listCost}
           listAdditionalSummary={listAdditionalSummary}
           totalItemPurchashed={10}
-          labelButton="Pay with e-Wallet"
-          totalCost="505,900"
+          labelButton={`Pay with ${paymentType}`}
+          totalCost={totalCost}
         />
       </BoxFormAndSummary>
     </BoxContent>

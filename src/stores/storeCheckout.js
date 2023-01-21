@@ -2,8 +2,8 @@ import { create } from 'zustand';
 import { persist } from 'zustand/middleware';
 
 const initialValue = {
-  currentStep: 1,
-  finishedStep: [1],
+  currentStep: 2,
+  finishedStep: [1, 2],
   totalPayment: 0,
   costOfGoods: 500_000,
   deliveryDetails: {
@@ -16,7 +16,7 @@ const initialValue = {
   },
   shipment: {
     provider: "",
-    costShipement: 0,
+    costShipement: "",
   },
   paymentType: "",
   orderId: null,

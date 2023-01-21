@@ -10,17 +10,7 @@ import FormGroup from "./FormGroup";
 import BoxFormAndSummary from "../../../ui/BoxFormAndSummary/BoxFormAndSummary";
 import { usePrettyPrintedState } from "../../../hooks/usePrettyPrintedState";
 import useStoreCheckout from '../../../stores/storeCheckout';
-
-const listCost = [
-  {
-    label: "Cost of goods",
-    value: "500,000"
-  },
-  {
-    label: "Dropshipping Fee",
-    value: "5,900"
-  },
-];
+import { useListCostAndTotal } from '../../../hooks/useListCostAndTotal';
 
 const BoxDelivery = () => {
 	const [submitValue, setSubmitValue] = usePrettyPrintedState();
@@ -29,46 +19,21 @@ const BoxDelivery = () => {
     deliveryDetails,
     setInputErrors,
     setDeliveryDetail,
+    setFinishedStep,
+    setCurrentStep,
   } = useStoreCheckout();
   const isDropshipper = deliveryDetails.isDropshipper;
+  const [listCost, totalCost] = useListCostAndTotal();
   
   useEffect(() => {
     setInputErrors(errors);
   }, [errors]);
 
-  const listCost = useMemo(() => {
-    const list = [
-      {
-        label: "Cost of goods",
-        value: "500,000"
-      },
-    ];
-
-    if (isDropshipper) {
-      list.push({
-        label: "Dropshipping Fee",
-        value: "5,900"
-      })
-    }
-
-    return list;
-  }, [isDropshipper]);
-
-  const totalCost = useMemo(() => {
-    let total = 0;
-
-    for(let i = 0; i < listCost.length; i++) {
-      let currentCost = listCost[i].value;
-      currentCost = currentCost.replace(",", "");
-      total += parseInt(currentCost, 10);
-    }
-
-    return total.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");;
-  }, [listCost]);
-
 	const onSubmit = (data) => {
 		console.log(JSON.stringify(data));
 		setSubmitValue(data)
+    setFinishedStep([1, 2]);
+    setCurrentStep(2);
 	}
 	const formRef = useRef(null)
 

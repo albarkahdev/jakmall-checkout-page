@@ -1,5 +1,7 @@
 import styled from "styled-components";
+
 import RadioBox from "../../../ui/RadioBox/RadioBox";
+import useStoreCheckout from '../../../stores/storeCheckout';
 
 const Wrapper = styled.div`
   display: grid;
@@ -7,24 +9,49 @@ const Wrapper = styled.div`
   grid-template-columns: auto auto auto;
 `;
 
+const listRadioBoxShipment = [
+  {
+    provider: "GO-SEND",
+    costShipement: "15,000"
+  },
+  {
+    provider: "JNE",
+    costShipement: "9,000"
+  },
+  {
+    provider: "Personal Courier",
+    costShipement: "29,000"
+  },
+];
+
 const ShipementFormGroup = () => {
+  const {
+    shipment,
+    setShipment,
+  } = useStoreCheckout();
+
+  const handleChangeRadio = (label, value) => {
+    setShipment({
+      provider: label,
+      costShipement: value,
+    })
+  }
+
   return (
     <Wrapper>
-      <RadioBox
-        isSelected
-        label="GO-SEND"
-        value="15,000"
-      />
-      <RadioBox
-        isSelected={false}
-        label="JNE"
-        value="9,000"
-      />
-      <RadioBox
-        isSelected={false}
-        label="Personal Courier"
-        value="29,000"
-      />
+      {
+        listRadioBoxShipment.map(({ provider, costShipement }, idx) => {
+          return (
+            <RadioBox
+              key={idx}
+              isSelected={shipment?.provider === provider}
+              label={provider}
+              value={costShipement}
+              onClick={() => handleChangeRadio(provider, costShipement)}
+            />
+          )
+        })
+      }
     </Wrapper>
   )
 }
