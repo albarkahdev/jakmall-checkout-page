@@ -14,11 +14,11 @@ const Wrapper = styled.div`
   }
 `;
 
-const FormGroup = () => {
+const FormGroup = ({ register }) => {
   return (
     <Wrapper>
-      <DetailsFormGroup />
-      <DropshipperFormGroup />
+      <DetailsFormGroup register={register} />
+      {/* <DropshipperFormGroup register={register} /> */}
     </Wrapper>
   )
 }

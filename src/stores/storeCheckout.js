@@ -19,10 +19,11 @@ const initialValue = {
   },
   payment_type: "",
   order_id: null,
+  input_errors: {},
 };
 
 const useStoreCheckout = create(
-  persist(
+  
     (set) => ({
       currentStep: initialValue.current_step,
       setStep: (v) => set({ current_step: v }),
@@ -32,7 +33,7 @@ const useStoreCheckout = create(
       
       deliveryDetails: initialValue.delivery_details,
       setDeliveryDetail: (v) => set((prevState) =>
-        ({ deliveryDetails: {...prevState.delivery_details, ...v } })
+        ({ delivery_details: {...prevState.delivery_details, ...v } })
       ),
       
       shipment: initialValue.shipment,
@@ -45,11 +46,10 @@ const useStoreCheckout = create(
     
       orderId: initialValue.order_id,
       setOrderId: (v) => set({ order_id: v }),
-    }),
-    {
-      name: "chekout-storage",
-    },
-  )
+      
+      inputErrors: initialValue.input_errors,
+      setInputErrors: (v) => set({ input_errors: v }),
+    })
 );
 
 export default useStoreCheckout;

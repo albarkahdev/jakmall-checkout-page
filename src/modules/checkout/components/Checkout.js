@@ -13,12 +13,12 @@ const listStep = [
   {
     order: 2,
     name: "Payment",
-    isActive: true,
+    isActive: false,
   },
   {
     order: 3,
     name: "Finish",
-    isActive: true,
+    isActive: false,
   }
 ];
 
@@ -26,9 +26,9 @@ const Checkout = () => {
   return (
     <BoxCheckout>
       <Stepper list={listStep} />
-      {/* <BoxDeliveryDetails /> */}
+      <BoxDeliveryDetails />
       {/* <BoxPayment /> */}
-      <BoxCompleteCheckout />
+      {/* <BoxCompleteCheckout /> */}
     </BoxCheckout>
   )
 };

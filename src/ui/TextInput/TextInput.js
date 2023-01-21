@@ -1,6 +1,9 @@
+import { useMemo } from 'react';
 import styled from 'styled-components';
+
 import { FiCheck, FiX } from "react-icons/fi";
 import { useState } from 'react';
+import Text from '../Text/Text';
 
 const colorByType = {
   normal: {
@@ -67,11 +70,31 @@ const XIcon = styled(FiX)`
 `;
 
 const TextInput = ({
-    type = "correct",
+    type,
     typeInput,
     label,
+    register = () => null,
+    validation = {},
+    error,
   }) => {
   const [isActive, setIsActive] = useState(false);
+
+  const typeTextInput = useMemo(() => {
+    if (!isActive) {
+      return "normal"
+    }
+
+    if (type) {
+      return type;
+    }
+
+    if (error) {
+      return "wrong";
+    }
+
+    return "correct";
+
+  }, [isActive, type, error]);
 
   const handleTextChange = (e) => {
     const text = e?.target?.value;
@@ -83,8 +106,8 @@ const TextInput = ({
     }
   }
 
-  const colorBase = colorByType.hasOwnProperty(type)
-    ? colorByType[type]
+  const colorBase = colorByType.hasOwnProperty(typeTextInput)
+    ? colorByType[typeTextInput]
     : colorByType["normal"];
 
   return (
@@ -93,13 +116,21 @@ const TextInput = ({
         borderColor={colorBase.borderColor}
         type={typeInput}
         onChange={handleTextChange}
+        {...register(
+          label,
+          {
+            onChange: handleTextChange,
+            ...validation,
+          }
+        )}
       />
       <LabelInput
         isActive={isActive}
         color={colorBase.color}
       >{label}</LabelInput>
-      {type === "correct" && <CheckIcon color={colorBase.color} />}
-      {type === "wrong" && <XIcon color={colorBase.color} />}
+      {typeTextInput === "correct" && <CheckIcon color={colorBase.color} />}
+      {typeTextInput === "wrong" && <XIcon color={colorBase.color} />}
+      {error && isActive && <Text type="orange-medium">{error}</Text>}
     </Wrapper>
   )
 }

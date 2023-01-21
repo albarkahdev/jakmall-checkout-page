@@ -6,12 +6,12 @@ const Wrapper = styled.div`
   grid-area: dropshipperForm;
 `;
 
-const DropshipperFormGroup = () => {
+const DropshipperFormGroup = ({ register }) => {
   return (
     <Wrapper>
-      <TextInput label="Dropshipper name" typeInput="text" />
+      <TextInput label="Dropshipper name" typeInput="text" register={register} />
       <Space v={10} />
-      <TextInput label="Dropshipper phone number" typeInput="phone" />
+      <TextInput label="Dropshipper phone number" typeInput="tel" register={register} />
     </Wrapper>
   )
 }

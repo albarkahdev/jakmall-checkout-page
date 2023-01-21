@@ -18,7 +18,8 @@ const BoxSummary = ({
   listCost,
   listAdditionalSummary,
   totalCost,
-  labelButton
+  labelButton,
+  submit,
 }) => {
   return (
     <Wrapper>
@@ -61,7 +62,7 @@ const BoxSummary = ({
           value={totalCost}
         />
         <Space v={18} />
-        {labelButton !== "" && <Button>{labelButton}</Button>}
+        {labelButton !== "" && <Button onClick={submit}>{labelButton}</Button>}
       </BoxCost>
     </Wrapper>
   )
