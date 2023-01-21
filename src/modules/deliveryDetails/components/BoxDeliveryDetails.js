@@ -6,6 +6,7 @@ import BoxSummary from "../../../ui/BoxSummary/BoxSummary";
 import HeaderForm from "../../../ui/HeaderForm/HeaderForm";
 import BoxNavigation from "../../../ui/BoxNavigation/BoxNavigation";
 import FormGroup from "./FormGroup";
+import BoxFormAndSummary from "../../../ui/BoxFormAndSummary/BoxFormAndSummary";
 
 const listStep = [
   {
@@ -30,21 +31,23 @@ const BoxDeliveryDetails = () => {
     <BoxCheckout>
       <Stepper list={listStep} />
       <BoxContent>
-        <BoxForm>
-          <BoxNavigation
-            label="Back to cart"
-          />
-          <HeaderForm
-            title="Delivery details"
-            isChekboxAvailable
-            labelCheckbox="Send as dropshipper"
-            isCheckboxChecked
-          />
-          <FormGroup />
-        </BoxForm>
-        <BoxSummary>
-          
-        </BoxSummary>
+        <BoxNavigation
+          label="Back to cart"
+        />
+        <BoxFormAndSummary>
+          <BoxForm>
+            <HeaderForm
+              title="Delivery details"
+              isChekboxAvailable
+              labelCheckbox="Send as dropshipper"
+              isCheckboxChecked
+            />
+            <FormGroup />
+          </BoxForm>
+          <BoxSummary>
+            
+          </BoxSummary>
+        </BoxFormAndSummary>
       </BoxContent>
     </BoxCheckout>
   )

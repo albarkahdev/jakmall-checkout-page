@@ -7,7 +7,8 @@ const Wrapper = styled.div`
   display: flex;
   flex-direction: row;
   align-items: center;
-  margin-bottom: 40px;
+  /* margin-bottom: 40px; */
+  padding: 30px 40px 20px 40px;
   cursor: pointer;
 `;
 

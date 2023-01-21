@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 const Wrapper = styled.div`
-  padding: 30px 40px;
+  padding: 20px 40px;
   grid-area: boxForm;
 `;
 

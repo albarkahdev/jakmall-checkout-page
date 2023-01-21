@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-import Text from '../Text/Text';
 
 const Wrapper = styled.div`
   border-left: 1px solid #FFE8CC;
