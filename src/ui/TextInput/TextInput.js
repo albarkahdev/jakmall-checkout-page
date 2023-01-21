@@ -66,7 +66,11 @@ const XIcon = styled(FiX)`
   top: 35px;
 `;
 
-const TextInput = ({ type = "normal", typeInput }) => {
+const TextInput = ({
+    type = "normal",
+    typeInput,
+    label,
+  }) => {
   const [isActive, setIsActive] = useState(false);
 
   const handleTextChange = (e) => {
@@ -93,7 +97,7 @@ const TextInput = ({ type = "normal", typeInput }) => {
       <LabelInput
         isActive={isActive}
         color={colorBase.color}
-      >Email</LabelInput>
+      >{label}</LabelInput>
       {type === "correct" && <CheckIcon color={colorBase.color} />}
       {type === "wrong" && <XIcon color={colorBase.color} />}
     </Wrapper>

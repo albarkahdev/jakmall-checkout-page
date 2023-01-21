@@ -4,9 +4,14 @@ import DropshipperFormGroup from "./DropshipperFormGroup";
 
 const Wrapper = styled.div`
   width: 100%;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
+  display: grid;
+  grid-gap: 2em;
+  grid-template-columns: auto auto;
+  grid-template-areas: "detailsForm dropshipperForm";
+  @media (max-width: 425px) {
+    grid-template-columns: auto;
+    grid-template-areas: "detailsForm" "dropshipperForm";
+  }
 `;
 
 const FormGroup = () => {

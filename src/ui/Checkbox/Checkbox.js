@@ -16,8 +16,7 @@ const Checkbox = ({ label, checked }) => {
   return (
     <Wrapper>
       <CheckboxInput type="checkbox" checked={checked} />
-      <Space />
-      <Space />
+      <Space h={4} />
       <Text type="black-large">{label}</Text>
     </Wrapper>
   )

@@ -15,8 +15,7 @@ const BoxNavigation = ({ label }) => {
   return (
     <Wrapper>
       <FiArrowLeft color='black' />
-      <Space />
-      <Space />
+      <Space h={4} />
       <Text type='black-large'>{label}</Text>
     </Wrapper>
   )

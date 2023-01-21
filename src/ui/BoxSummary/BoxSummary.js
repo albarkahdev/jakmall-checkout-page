@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import Text from '../Text/Text';
 
 const Wrapper = styled.div`
   display: flex;
@@ -9,6 +10,13 @@ const Wrapper = styled.div`
 const BoxSummary = ({ children }) => {
   return (
     <Wrapper>
+      <Text type="black-medium">Test SUmmary</Text>
+      <Text type="black-medium">Test SUmmary</Text>
+      <Text type="black-medium">Test SUmmary</Text>
+      <Text type="black-medium">Test SUmmary</Text>
+      <Text type="black-medium">Test SUmmary</Text>
+      <Text type="black-medium">Test SUmmary</Text>
+      <Text type="black-medium">Test SUmmary</Text>
       {children}
     </Wrapper>
   )

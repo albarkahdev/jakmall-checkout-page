@@ -21,8 +21,7 @@ const StepItem = ({ isActive, numberStep, textStep }) => {
             {numberStep}
           </Text>
         </CircleOrange>
-        <Space />
-        <Space />
+        <Space h={4} />
         <Text type="orange-large">{textStep}</Text>
       </Wrapper>
     );
@@ -35,8 +34,7 @@ const StepItem = ({ isActive, numberStep, textStep }) => {
           {numberStep}
         </Text>
       </CircleOrange>
-      <Space />
-      <Space />
+      <Space h={4} />
       <Text type="orange-large">{textStep}</Text>
     </Wrapper>
   )
