@@ -4,6 +4,10 @@ import BoxSummary from "../../../ui/BoxSummary/BoxSummary";
 import HeaderForm from "../../../ui/HeaderForm/HeaderForm";
 import BoxNavigation from "../../../ui/BoxNavigation/BoxNavigation";
 import BoxFormAndSummary from "../../../ui/BoxFormAndSummary/BoxFormAndSummary";
+import BoxCenter from "../../../ui/BoxCenter/BoxCenter";
+import Text from "../../../ui/Text/Text";
+import BoxOrderDescription from "./BoxOrderDescription";
+import Space from "../../../ui/Space/Space";
 
 const listCost = [
   {
@@ -41,18 +45,27 @@ const BoxCompleteCheckout = () => {
         label=""
       />
       <BoxFormAndSummary>
-        <BoxForm>
-          <HeaderForm
-            title="Shipment"
-            isChekboxAvailable={false}
-          />
-        </BoxForm>
+        <BoxCenter>
+          <BoxOrderDescription>
+            <HeaderForm
+              title="Thank you"
+              isChekboxAvailable={false}
+            />
+            <Text type="black-large">Order ID : XXKYB</Text>
+            <Space v={2} />
+            <Text type="black-large">Your order will be delivered today with ASDASDASD</Text>
+            <BoxNavigation
+              label="Go to homepage"
+              leftPadding={0}
+            />
+          </BoxOrderDescription>
+        </BoxCenter>
         <BoxSummary
           listCost={listCost}
           listAdditionalSummary={listAdditionalSummary}
           totalItemPurchashed={10}
-          labelButton="Pay with e-Wallet"
           totalCost="505,900"
+          labelButton=""
         />
       </BoxFormAndSummary>
     </BoxContent>

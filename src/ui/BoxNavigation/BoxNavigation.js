@@ -7,13 +7,13 @@ const Wrapper = styled.div`
   display: flex;
   flex-direction: row;
   align-items: center;
-  padding: 30px 40px 20px 40px;
+  padding: 30px 40px 20px ${props => props.leftPadding + "px"};
   cursor: pointer;
 `;
 
-const BoxNavigation = ({ label }) => {
+const BoxNavigation = ({ label, leftPadding = 40 }) => {
   return (
-    <Wrapper>
+    <Wrapper leftPadding={leftPadding}>
       {label !== "" && <FiArrowLeft color='black' />}
       <Space h={4} />
       <Text type='black-large'>{label}</Text>

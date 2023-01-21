@@ -61,7 +61,7 @@ const BoxSummary = ({
           value={totalCost}
         />
         <Space v={18} />
-        <Button>{labelButton}</Button>
+        {labelButton !== "" && <Button>{labelButton}</Button>}
       </BoxCost>
     </Wrapper>
   )
