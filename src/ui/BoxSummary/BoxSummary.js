@@ -11,13 +11,6 @@ const Wrapper = styled.div`
 const BoxSummary = ({ children }) => {
   return (
     <Wrapper>
-      <Text type="black-medium">Test SUmmary</Text>
-      <Text type="black-medium">Test SUmmary</Text>
-      <Text type="black-medium">Test SUmmary</Text>
-      <Text type="black-medium">Test SUmmary</Text>
-      <Text type="black-medium">Test SUmmary</Text>
-      <Text type="black-medium">Test SUmmary</Text>
-      <Text type="black-medium">Test SUmmary</Text>
       {children}
     </Wrapper>
   )

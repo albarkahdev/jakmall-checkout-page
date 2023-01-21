@@ -43,7 +43,7 @@ const BoxDeliveryDetails = () => {
           <FormGroup />
         </BoxForm>
         <BoxSummary>
-
+          
         </BoxSummary>
       </BoxContent>
     </BoxCheckout>

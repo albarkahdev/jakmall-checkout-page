@@ -30,6 +30,13 @@ const TextOrangeLarge = styled.p`
   font-weight: 500;
 `;
 
+const TextOrangeXL = styled.p`
+  color: #FF8A00;
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 29px;
+`;
+
 const TextOrangeXXL = styled.p`
   color: #FF8A00;
   font-weight: 700;
@@ -49,6 +56,8 @@ const Text = ({ type = "white-medium", children }) => {
       return <TextOrangeMedium>{children}</TextOrangeMedium>;
     case "orange-large":
       return <TextOrangeLarge>{children}</TextOrangeLarge>;
+    case "orange-xl":
+      return <TextOrangeXL>{children}</TextOrangeXL>;
     case "orange-xxl":
       return <TextOrangeXXL>{children}</TextOrangeXXL>;
     default:

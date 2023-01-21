@@ -1,4 +1,6 @@
 import styled from "styled-components";
+import { FiChevronRight } from "react-icons/fi";
+
 import StepItem from "../StepItem/StepItem";
 
 const Wrapper = styled.div`
@@ -16,12 +18,27 @@ const Wrapper = styled.div`
   align-items: center;
 `;
 
+const ChevronRight = styled(FiChevronRight)`
+  color: #FF8A00;
+`;
+
 const Stepper = ({ list }) => {
   return (
     <Wrapper>
       {
         list?.map((step, idx) => {
-          return <StepItem key={idx} isActive={step.isActive} numberStep={step.order} textStep={step.name} />;
+          const isLastIndex = list?.length - 1 === idx;
+          return (
+            <>
+              <StepItem
+                key={idx}
+                isActive={step.isActive}
+                numberStep={step.order}
+                textStep={step.name}
+              />
+              {!isLastIndex && <ChevronRight />}
+            </>
+          );
         })
       }
     </Wrapper>
