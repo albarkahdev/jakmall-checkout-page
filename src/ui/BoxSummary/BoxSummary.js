@@ -2,9 +2,10 @@ import styled from 'styled-components';
 import Text from '../Text/Text';
 
 const Wrapper = styled.div`
-  display: flex;
-  border-left-width: 1px;
-  border-left-color: #FF8A00;
+  border-left: 1px solid #FFE8CC;
+  grid-area: boxSummary;
+  padding: 0px 20px;
+  margin: 20px 0px;
 `;
 
 const BoxSummary = ({ children }) => {

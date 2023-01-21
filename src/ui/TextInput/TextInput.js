@@ -21,12 +21,12 @@ const colorByType = {
 const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
-  min-width: 250px;
+  /* min-width: 250px; */
   position: relative;
 `;
 
 const Input = styled.input`
-  width: 100%;
+  /* width: 100%; */
   height: 56px;
   padding: 14px 35px 0 10px;
   outline: 0;
@@ -55,19 +55,19 @@ const LabelInput = styled.label`
 const CheckIcon = styled(FiCheck)`
   color: ${props => props.color};
   position: absolute;
-  right: -35px;
-  top: 35px;
+  right: 20px;
+  top: 30px;
 `;
 
 const XIcon = styled(FiX)`
   color: ${props => props.color};
   position: absolute;
-  right: -35px;
-  top: 35px;
+  right: 20px;
+  top: 30px;
 `;
 
 const TextInput = ({
-    type = "normal",
+    type = "wrong",
     typeInput,
     label,
   }) => {

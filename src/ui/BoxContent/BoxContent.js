@@ -8,8 +8,13 @@ const Box = styled.section`
   box-shadow: 2px 10px 20px rgba(255, 138, 0, 0.1);
   border-radius: 4px;
 
-  display: flex;
-  flex-direction: row;
+  display: grid;
+  grid-template-columns: 70% auto;
+  grid-template-areas: "boxForm boxSummary";
+  @media (max-width: 425px) {
+    grid-template-columns: auto;
+    grid-template-areas: "boxForm" "boxSummary";
+  }
 `;
 
 
