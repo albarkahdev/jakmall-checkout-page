@@ -8,6 +8,7 @@ const Wrapper = styled.div`
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
+  margin-bottom: 36px;
 `;
 
 const HeaderForm = ({ title, isChekboxAvailable, labelCheckbox, isCheckboxChecked }) => {

@@ -4,6 +4,7 @@ import BoxForm from "../../../ui/BoxForm/BoxForm";
 import BoxSummary from "../../../ui/BoxSummary/BoxSummary";
 import HeaderForm from "../../../ui/HeaderForm/HeaderForm";
 import BoxNavigation from "../../../ui/BoxNavigation/BoxNavigation";
+import FormGroup from "./FormGroup";
 
 const listStep = [
   {
@@ -38,6 +39,7 @@ const BoxDeliveryDetails = () => {
             labelCheckbox="Send as dropshipper"
             isCheckboxChecked
           />
+          <FormGroup />
         </BoxForm>
         <BoxSummary>
 
