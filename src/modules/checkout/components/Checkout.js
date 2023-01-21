@@ -1,5 +1,6 @@
 import BoxCheckout from "../../../ui/BoxCheckout/BoxCheckout";
 import Stepper from "../../../ui/Stepper/Stepper";
+import BoxCompleteCheckout from "../../completeCheckout/components/BoxCompleteCheckout";
 import BoxDeliveryDetails from "../../delivery/components/BoxDelivery";
 import BoxPayment from "../../payment/components/BoxPayment";
 
@@ -17,7 +18,7 @@ const listStep = [
   {
     order: 3,
     name: "Finish",
-    isActive: false,
+    isActive: true,
   }
 ];
 
@@ -26,7 +27,8 @@ const Checkout = () => {
     <BoxCheckout>
       <Stepper list={listStep} />
       {/* <BoxDeliveryDetails /> */}
-      <BoxPayment />
+      {/* <BoxPayment /> */}
+      <BoxCompleteCheckout />
     </BoxCheckout>
   )
 };

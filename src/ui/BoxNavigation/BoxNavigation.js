@@ -7,7 +7,6 @@ const Wrapper = styled.div`
   display: flex;
   flex-direction: row;
   align-items: center;
-  /* margin-bottom: 40px; */
   padding: 30px 40px 20px 40px;
   cursor: pointer;
 `;
@@ -15,7 +14,7 @@ const Wrapper = styled.div`
 const BoxNavigation = ({ label }) => {
   return (
     <Wrapper>
-      <FiArrowLeft color='black' />
+      {label !== "" && <FiArrowLeft color='black' />}
       <Space h={4} />
       <Text type='black-large'>{label}</Text>
     </Wrapper>

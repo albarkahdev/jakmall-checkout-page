@@ -4,7 +4,6 @@ import BoxCost from '../BoxCost/BoxCost';
 import CostDescription from '../CostDescription/CostDescription';
 import Button from '../Button/Button';
 import Space from '../Space/Space';
-import BorderHorizontal from '../BorderHorizontal/BorderHorizontal';
 import AdditionalSummaryDescription from '../AdditionalSummaryDescription/AdditionalSummaryDescription';
 
 const Wrapper = styled.div`
