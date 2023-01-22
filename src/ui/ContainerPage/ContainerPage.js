@@ -3,6 +3,7 @@ import { screenSize } from "../../constants/commonScreenSize";
 
 const Wrapper = styled.section`
   width: 100%;
+  overflow-y: scroll;
   @media (max-width: ${screenSize.desktop}) {
     padding: 0px 40px;
   }

@@ -43,6 +43,7 @@ const Textarea = styled.textarea`
   border: 1px solid ${props => props.borderColor};
   background: #fff;
   font-size: 16px;
+  font-family: Helvetica Neue;
 `;
 
 const LabelInput = styled.label`

@@ -45,7 +45,6 @@ const BoxDelivery = () => {
   }
 
   const onSubmit = (data) => {
-    console.log(JSON.stringify(data));
     setSubmitValue(data);
     onChangeSubmit();
   }
