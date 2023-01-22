@@ -1,8 +1,17 @@
 import styled from "styled-components";
+import { screenSize } from "../../constants/screenSize";
 
 const Wrapper = styled.section`
   width: 100%;
-  padding: 0px 50px;
+  @media (max-width: ${screenSize.desktop}) {
+    padding: 0px 40px;
+  }
+  @media (max-width: ${screenSize.laptop}) {
+    padding: 0px 20px;
+  }
+  @media (max-width: ${screenSize.tablet}) {
+    padding: 0px 10px;
+  }
 `;
 
 

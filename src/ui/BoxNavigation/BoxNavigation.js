@@ -1,5 +1,7 @@
 import styled from 'styled-components';
 import { FiArrowLeft } from "react-icons/fi";
+
+import { screenSize } from "../../constants/screenSize";
 import Text from '../Text/Text';
 import Space from '../Space/Space';
 
@@ -9,6 +11,10 @@ const Wrapper = styled.div`
   align-items: center;
   padding: 30px 40px 20px ${props => props.leftPadding + "px"};
   cursor: pointer;
+  @media (max-width: ${screenSize.mobileL}) {
+    padding: 20px;
+    padding-top: 50px;
+  }
 `;
 
 const BoxNavigation = ({ label, leftPadding = 40, onClick = () => null }) => {

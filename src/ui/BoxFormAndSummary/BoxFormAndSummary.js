@@ -1,10 +1,13 @@
 import styled from 'styled-components';
+import { screenSize } from "../../constants/screenSize";
 
 const Wrapper = styled.div`
   display: grid;
-  grid-template-columns: 70% auto;
-  grid-template-areas: "boxForm boxSummary";
-  @media (max-width: 425px) {
+  @media (max-width: ${screenSize.desktop}) {
+    grid-template-columns: 70% auto;
+    grid-template-areas: "boxForm boxSummary";
+  }
+  @media (max-width: ${screenSize.tablet}) {
     grid-template-columns: auto;
     grid-template-areas: "boxForm" "boxSummary";
   }

@@ -1,16 +1,25 @@
 import styled from 'styled-components';
+
 import Text from '../Text/Text';
 import BoxCost from '../BoxCost/BoxCost';
 import CostDescription from '../CostDescription/CostDescription';
 import Button from '../Button/Button';
 import Space from '../Space/Space';
 import AdditionalSummaryDescription from '../AdditionalSummaryDescription/AdditionalSummaryDescription';
+import { screenSize } from "../../constants/screenSize";
 
 const Wrapper = styled.div`
-  border-left: 1px solid #FFE8CC;
   grid-area: boxSummary;
-  padding: 0px 20px;
-  margin: 20px 0px;
+  @media (max-width: ${screenSize.desktop}) {
+    border-left: 1px solid #FFE8CC;
+    padding: 0px 20px;
+    margin: 20px 0px;
+  }
+  @media (max-width: ${screenSize.laptop}) {
+    border-left: 0px solid white;
+    padding: 0px 20px;
+    margin: 20px 0px;
+  }
 `;
 
 const BoxSummary = ({
