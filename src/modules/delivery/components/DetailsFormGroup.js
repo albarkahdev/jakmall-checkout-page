@@ -27,7 +27,7 @@ const DetailsFormGroup = ({ register }) => {
           },
         }}
         error={inputErrors?.["email"]?.message || ""}
-        onChange={debounce(value => setDeliveryDetail({ email: value }), 300)}
+        onChange={debounce(value => setDeliveryDetail({ email: value }), 200)}
         isNotEmpty={deliveryDetails?.email !== ""}
       />
       <Space v={10} />
@@ -52,7 +52,7 @@ const DetailsFormGroup = ({ register }) => {
           },
         }}
         error={inputErrors?.["phone"]?.message || ""}
-        onChange={debounce(value => setDeliveryDetail({ phone: value }), 300)}
+        onChange={debounce(value => setDeliveryDetail({ phone: value }), 200)}
         isNotEmpty={deliveryDetails?.phone !== ""}
       />
       <Space v={10} />
@@ -69,7 +69,7 @@ const DetailsFormGroup = ({ register }) => {
           },
         }}
         error={inputErrors?.["deliveryAddress"]?.message || ""}
-        onChange={debounce(value => setDeliveryDetail({ deliveryAddress: value }), 300)}
+        onChange={debounce(value => setDeliveryDetail({ deliveryAddress: value }), 200)}
         isNotEmpty={deliveryDetails?.deliveryAddress !== ""}
         isMultiline
         rows="3"
