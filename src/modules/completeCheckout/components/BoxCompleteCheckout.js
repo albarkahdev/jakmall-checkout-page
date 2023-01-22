@@ -32,11 +32,12 @@ const listCost = [
 ];
 
 const BoxCompleteCheckout = () => {
-  const { orderId, shipment } = useStoreCheckout();
+  const { orderId, shipment, resetStoreCheckout } = useStoreCheckout();
   const [listCost, totalCost] = useListCostAndTotal();
   const [listAdditionalSummary] = useListAdditionalSummary({ isShowAll: true });
   let descriptionShipmentProvider =
     generateDescriptionByShipmentProvider(shipment.provider);
+  
 
   return (
     <BoxContent>
@@ -56,6 +57,7 @@ const BoxCompleteCheckout = () => {
             <BoxNavigation
               label="Go to homepage"
               leftPadding={0}
+              onClick={resetStoreCheckout}
             />
           </BoxOrderDescription>
         </BoxCenter>

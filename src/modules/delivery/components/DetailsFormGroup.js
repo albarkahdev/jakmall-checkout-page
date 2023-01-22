@@ -10,10 +10,11 @@ const Wrapper = styled.div`
 
 const DetailsFormGroup = ({ register }) => {
   const { inputErrors } = useStoreCheckout();
-
+  
   return (
     <Wrapper>
       <TextInput
+        inputKey="email"
         label="Email"
         typeInput="email"
         register={register}
@@ -24,10 +25,11 @@ const DetailsFormGroup = ({ register }) => {
             message: "Email is invalid."
           },
         }}
-        error={inputErrors?.["Email"]?.message || ""}
+        error={inputErrors?.["email"]?.message || ""}
       />
       <Space v={10} />
       <TextInput
+        inputKey="phone"
         label="Phone number"
         typeInput="tel"
         register={register}
@@ -46,10 +48,11 @@ const DetailsFormGroup = ({ register }) => {
             message: "Max length phone number is 20"
           },
         }}
-        error={inputErrors?.["Phone number"]?.message || ""}
+        error={inputErrors?.["phone"]?.message || ""}
       />
       <Space v={10} />
       <TextInput
+        inputKey="deliveryAddress"
         label="Adress"
         typeInput="text"
         register={register}
@@ -60,7 +63,7 @@ const DetailsFormGroup = ({ register }) => {
             message: "Max length address is 120"
           },
         }}
-        error={inputErrors?.["Adress"]?.message || ""}
+        error={inputErrors?.["deliveryAddress"]?.message || ""}
       />
     </Wrapper>
   )

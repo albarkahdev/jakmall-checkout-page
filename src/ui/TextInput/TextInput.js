@@ -70,6 +70,7 @@ const XIcon = styled(FiX)`
 `;
 
 const TextInput = ({
+    inputKey,
     type,
     typeInput,
     label,
@@ -118,7 +119,7 @@ const TextInput = ({
         type={typeInput}
         onChange={handleTextChange}
         {...register(
-          label,
+          inputKey,
           {
             onChange: handleTextChange,
             ...validation,

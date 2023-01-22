@@ -15,6 +15,7 @@ const DropshipperFormGroup = ({ register }) => {
   return (
     <Wrapper>
       <TextInput
+        inputKey="dropshipperName"
         label="Dropshipper name"
         typeInput="text"
         register={register}
@@ -24,11 +25,12 @@ const DropshipperFormGroup = ({ register }) => {
             message: "Name is required",
           },
         }}
-        error={inputErrors?.["Dropshipper name"]?.message || ""}
+        error={inputErrors?.["dropshipperName"]?.message || ""}
         disabled={!isDropshipper}
       />
       <Space v={10} />
       <TextInput
+        inputKey="dropshipperPhone"
         label="Dropshipper phone number"
         typeInput="tel"
         register={register}
@@ -50,7 +52,7 @@ const DropshipperFormGroup = ({ register }) => {
             message: "Max length phone number is 20"
           },
         }}
-        error={inputErrors?.["Dropshipper phone number"]?.message || ""}
+        error={inputErrors?.["dropshipperPhone"]?.message || ""}
         disabled={!isDropshipper}
       />
     </Wrapper>

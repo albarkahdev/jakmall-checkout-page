@@ -62,10 +62,15 @@ const BoxPayment = () => {
     }
   };
 
+  const handleBack = () => {
+    setCurrentStep(1);
+  }
+
   return (
     <BoxContent>
       <BoxNavigation
         label="Back to delivery"
+        onClick={handleBack}
       />
       <BoxFormAndSummary>
         <BoxForm>

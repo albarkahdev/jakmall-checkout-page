@@ -2,9 +2,8 @@ import { create } from 'zustand';
 import { persist } from 'zustand/middleware';
 
 const initialValue = {
-  currentStep: 3,
-  finishedStep: [1, 2, 3],
-  totalPayment: 0,
+  currentStep: 1,
+  finishedStep: [1],
   costOfGoods: 500_000,
   deliveryDetails: {
     email: "",
@@ -24,18 +23,16 @@ const initialValue = {
 };
 
 const useStoreCheckout = create(
-  
-    (set) => ({
+  persist(
+    (set, get) => ({
       currentStep: initialValue.currentStep,
       setCurrentStep: (v) => set({ currentStep: v }),
 
       finishedStep: initialValue.finishedStep,
       setFinishedStep: (v) => set({ finishedStep: v }),
       
-      totalPayment: initialValue.totalPayment,
-      setTotalPayment: (v) => set({ totalPayment: v }),
-      
       deliveryDetails: initialValue.deliveryDetails,
+      getCurrentDeliveryDetails: () => get().deliveryDetails,
       setDeliveryDetail: (v) => set((prevState) =>
         ({ deliveryDetails: {...prevState.deliveryDetails, ...v } })
       ),
@@ -53,7 +50,13 @@ const useStoreCheckout = create(
       
       inputErrors: initialValue.inputErrors,
       setInputErrors: (v) => set({ inputErrors: v }),
-    })
+
+      resetStoreCheckout: () => set({ ...initialValue }),
+    }),
+    {
+      name: "checkout-storage"
+    }
+  )
 );
 
 export default useStoreCheckout;

@@ -11,9 +11,9 @@ const Wrapper = styled.div`
   cursor: pointer;
 `;
 
-const BoxNavigation = ({ label, leftPadding = 40 }) => {
+const BoxNavigation = ({ label, leftPadding = 40, onClick = () => null }) => {
   return (
-    <Wrapper leftPadding={leftPadding}>
+    <Wrapper leftPadding={leftPadding} onClick={onClick}>
       {label !== "" && <FiArrowLeft color='black' />}
       <Space h={4} />
       <Text type='black-large'>{label}</Text>

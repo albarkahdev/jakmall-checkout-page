@@ -1,4 +1,4 @@
-import { useRef, useEffect, useMemo } from 'react';
+import { useRef, useEffect } from 'react';
 import { useForm } from 'react-hook-form';
 
 import BoxContent from "../../../ui/BoxContent/BoxContent";
@@ -11,10 +11,11 @@ import BoxFormAndSummary from "../../../ui/BoxFormAndSummary/BoxFormAndSummary";
 import { usePrettyPrintedState } from "../../../hooks/usePrettyPrintedState";
 import useStoreCheckout from '../../../stores/storeCheckout';
 import { useListCostAndTotal } from '../../../hooks/useListCostAndTotal';
+import { useLoadStoreDeliveryDetails } from '../hooks/useLoadStoreDeliveryDetails';
 
 const BoxDelivery = () => {
 	const [submitValue, setSubmitValue] = usePrettyPrintedState();
-  const { register, formState: { errors }, handleSubmit } = useForm();
+  const { register, formState: { errors }, handleSubmit, getValues, reset } = useForm();
   const {
     deliveryDetails,
     setInputErrors,
@@ -24,6 +25,8 @@ const BoxDelivery = () => {
   } = useStoreCheckout();
   const isDropshipper = deliveryDetails.isDropshipper;
   const [listCost, totalCost] = useListCostAndTotal();
+
+  useLoadStoreDeliveryDetails({ reset });
   
   useEffect(() => {
     setInputErrors(errors);
@@ -32,17 +35,15 @@ const BoxDelivery = () => {
 	const onSubmit = (data) => {
 		console.log(JSON.stringify(data));
 		setSubmitValue(data);
-    setFinishedStep([1, 2]);
-    setCurrentStep(2);
 	}
+
 	const formRef = useRef(null)
 
 	const submit = () => {
-		if (formRef.current) {
-			formRef.current.dispatchEvent(
-				new Event('submit', { cancelable: true, bubbles: true })
-			)
-		}
+    const valuesForm = getValues();
+    setFinishedStep([1, 2]);
+    setCurrentStep(2);
+    setDeliveryDetail({...valuesForm})
 	};
 
   const handleCheckboxDropshipper = () => {
