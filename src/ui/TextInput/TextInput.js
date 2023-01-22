@@ -32,7 +32,7 @@ const Input = styled.input`
   padding: 14px 35px 0 10px;
   outline: 0;
   border: 1px solid ${props => props.borderColor};
-  background: #fff;
+  background-color: ${props => props.disabled ? "#ddd" : "#fff"};
   font-size: 16px;
 `;
 
