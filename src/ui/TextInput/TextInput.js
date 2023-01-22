@@ -79,8 +79,9 @@ const TextInput = ({
     validation = {},
     error,
     disabled = false,
+    isNotEmpty,
   }) => {
-  const [isActive, setIsActive] = useState(false);
+  const [isActive, setIsActive] = useState(isNotEmpty);
 
   const typeTextInput = useMemo(() => {
     if (!isActive) {

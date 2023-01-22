@@ -39,18 +39,25 @@ const BoxDelivery = () => {
     setInputErrors(errors);
   }, [errors]);
 
+  const onChangeSubmit = () => {
+    setFinishedStep([1, 2]);
+    setCurrentStep(2);
+  }
+
 	const onSubmit = (data) => {
 		console.log(JSON.stringify(data));
 		setSubmitValue(data);
+    onChangeSubmit();
 	}
 
 	const formRef = useRef(null)
 
 	const submit = () => {
-    const valuesForm = getValues();
-    setFinishedStep([1, 2]);
-    setCurrentStep(2);
-    setDeliveryDetail({...valuesForm})
+		if (formRef.current) {
+			formRef.current.dispatchEvent(
+				new Event('submit', { cancelable: true, bubbles: true })
+			)
+		}
 	};
 
   const handleCheckboxDropshipper = () => {

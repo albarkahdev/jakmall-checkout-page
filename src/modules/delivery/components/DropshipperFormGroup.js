@@ -29,6 +29,7 @@ const DropshipperFormGroup = ({ register }) => {
         error={inputErrors?.["dropshipperName"]?.message || ""}
         disabled={!isDropshipper}
         onChange={debounce(value => setDeliveryDetail({ dropshipperName: value }), 300)}
+        isNotEmpty={deliveryDetails?.dropshipperName !== ""}
       />
       <Space v={10} />
       <TextInput
@@ -57,6 +58,7 @@ const DropshipperFormGroup = ({ register }) => {
         error={inputErrors?.["dropshipperPhone"]?.message || ""}
         disabled={!isDropshipper}
         onChange={debounce(value => setDeliveryDetail({ dropshipperPhone: value }), 300)}
+        isNotEmpty={deliveryDetails?.dropshipperPhone !== ""}
       />
     </Wrapper>
   )

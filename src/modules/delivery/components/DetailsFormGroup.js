@@ -10,7 +10,7 @@ const Wrapper = styled.div`
 `;
 
 const DetailsFormGroup = ({ register }) => {
-  const { inputErrors, setDeliveryDetail } = useStoreCheckout();
+  const { deliveryDetails, inputErrors, setDeliveryDetail } = useStoreCheckout();
   
   return (
     <Wrapper>
@@ -28,6 +28,7 @@ const DetailsFormGroup = ({ register }) => {
         }}
         error={inputErrors?.["email"]?.message || ""}
         onChange={debounce(value => setDeliveryDetail({ email: value }), 300)}
+        isNotEmpty={deliveryDetails?.email !== ""}
       />
       <Space v={10} />
       <TextInput
@@ -52,6 +53,7 @@ const DetailsFormGroup = ({ register }) => {
         }}
         error={inputErrors?.["phone"]?.message || ""}
         onChange={debounce(value => setDeliveryDetail({ phone: value }), 300)}
+        isNotEmpty={deliveryDetails?.phone !== ""}
       />
       <Space v={10} />
       <TextInput
@@ -68,6 +70,7 @@ const DetailsFormGroup = ({ register }) => {
         }}
         error={inputErrors?.["deliveryAddress"]?.message || ""}
         onChange={debounce(value => setDeliveryDetail({ deliveryAddress: value }), 300)}
+        isNotEmpty={deliveryDetails?.deliveryAddress !== ""}
       />
     </Wrapper>
   )
