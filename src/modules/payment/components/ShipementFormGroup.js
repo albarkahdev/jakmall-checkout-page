@@ -3,11 +3,18 @@ import styled from "styled-components";
 import RadioBox from "../../../ui/RadioBox/RadioBox";
 import useStoreCheckout from '../../../stores/storeCheckout';
 import Text from "../../../ui/Text/Text";
+import { screenSize } from "../../../constants/screenSize";
 
 const Wrapper = styled.div`
   display: grid;
   grid-gap: 10px;
   grid-template-columns: auto auto auto;
+  @media (max-width: ${screenSize.laptop}) {
+    grid-template-columns: auto auto;
+  }
+  @media (max-width: ${screenSize.mobileL}) {
+    grid-template-columns: auto;
+  }
 `;
 
 const listRadioBoxShipment = [

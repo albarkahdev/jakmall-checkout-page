@@ -2,6 +2,7 @@ import styled from 'styled-components';
 
 import Text from '../Text/Text';
 import Checkbox from '../Checkbox/Checkbox';
+import { screenSize } from '../../constants/screenSize';
 
 const Wrapper = styled.div`
   display: flex;
@@ -9,6 +10,9 @@ const Wrapper = styled.div`
   justify-content: space-between;
   align-items: center;
   margin-bottom: 36px;
+  @media (max-width: ${screenSize.laptop}) {
+    margin-bottom: 20px;
+  }
 `;
 
 const HeaderForm = ({

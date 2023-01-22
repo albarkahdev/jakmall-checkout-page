@@ -24,14 +24,21 @@ const colorByType = {
 const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
-  /* min-width: 250px; */
   position: relative;
 `;
 
 const Input = styled.input`
-  /* width: 100%; */
   height: 56px;
   padding: 14px 35px 0 10px;
+  outline: 0;
+  border: 1px solid ${props => props.borderColor};
+  background: #fff;
+  font-size: 16px;
+`;
+
+const Textarea = styled.textarea`
+  height: 75px;
+  padding: 25px 35px 0 10px;
   outline: 0;
   border: 1px solid ${props => props.borderColor};
   background: #fff;
@@ -80,6 +87,10 @@ const TextInput = ({
     error,
     disabled = false,
     isNotEmpty,
+    isMultiline = false,
+    rows = "3",
+    isCounterAvailable = false,
+    counterNumber = 0,
   }) => {
   const [isActive, setIsActive] = useState(isNotEmpty);
 
@@ -116,19 +127,38 @@ const TextInput = ({
 
   return (
     <Wrapper>
-      <Input
-        borderColor={colorBase.borderColor}
-        type={typeInput}
-        onChange={handleTextChange}
-        {...register(
-          inputKey,
-          {
-            onChange: handleTextChange,
-            ...validation,
-          }
-        )}
-        disabled={disabled}
-      />
+      {
+        isMultiline
+        ? (
+          <Textarea
+            borderColor={colorBase.borderColor}
+            type={typeInput}
+            {...register(
+              inputKey,
+              {
+                onChange: handleTextChange,
+                ...validation,
+              }
+            )}
+            disabled={disabled}
+            rows={rows}
+          />
+        )
+        : (
+          <Input
+            borderColor={colorBase.borderColor}
+            type={typeInput}
+            {...register(
+              inputKey,
+              {
+                onChange: handleTextChange,
+                ...validation,
+              }
+            )}
+            disabled={disabled}
+          />
+        )
+      }
       <LabelInput
         isActive={isActive}
         color={colorBase.color}
@@ -136,6 +166,7 @@ const TextInput = ({
       {typeTextInput === "correct" && <CheckIcon color={colorBase.color} />}
       {typeTextInput === "wrong" && <XIcon color={colorBase.color} />}
       {error && isActive && <Text type="orange-medium">{error}</Text>}
+      {isCounterAvailable && <Text type="black-medium">total character: {counterNumber}</Text>}
     </Wrapper>
   )
 }

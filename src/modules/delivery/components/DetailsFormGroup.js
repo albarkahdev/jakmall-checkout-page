@@ -71,6 +71,10 @@ const DetailsFormGroup = ({ register }) => {
         error={inputErrors?.["deliveryAddress"]?.message || ""}
         onChange={debounce(value => setDeliveryDetail({ deliveryAddress: value }), 300)}
         isNotEmpty={deliveryDetails?.deliveryAddress !== ""}
+        isMultiline
+        rows="3"
+        isCounterAvailable
+        counterNumber={deliveryDetails?.deliveryAddress?.length}
       />
     </Wrapper>
   )

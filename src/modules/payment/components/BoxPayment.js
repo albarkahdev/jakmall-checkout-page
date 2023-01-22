@@ -79,7 +79,7 @@ const BoxPayment = () => {
             isChekboxAvailable={false}
           />
           <ShipementFormGroup onChange={handleSelectRadio} error={errors.shipment} />
-          <Space v={50} />
+          <Space v={20} />
           <HeaderForm
             title="Payment"
             isChekboxAvailable={false}
