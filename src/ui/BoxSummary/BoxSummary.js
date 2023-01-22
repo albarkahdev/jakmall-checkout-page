@@ -6,7 +6,7 @@ import CostDescription from '../CostDescription/CostDescription';
 import Button from '../Button/Button';
 import Space from '../Space/Space';
 import AdditionalSummaryDescription from '../AdditionalSummaryDescription/AdditionalSummaryDescription';
-import { screenSize } from "../../constants/screenSize";
+import { screenSize } from "../../constants/commonScreenSize";
 
 const Wrapper = styled.div`
   grid-area: boxSummary;

@@ -2,7 +2,7 @@ import styled from "styled-components";
 import { FiChevronRight } from "react-icons/fi";
 
 import StepItem from "../StepItem/StepItem";
-import { screenSize } from "../../constants/screenSize";
+import { screenSize } from "../../constants/commonScreenSize";
 
 const Wrapper = styled.div`
   position: absolute;

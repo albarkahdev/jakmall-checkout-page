@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 import Text from '../Text/Text';
 import Checkbox from '../Checkbox/Checkbox';
-import { screenSize } from '../../constants/screenSize';
+import { screenSize } from '../../constants/commonScreenSize';
 
 const Wrapper = styled.div`
   display: flex;

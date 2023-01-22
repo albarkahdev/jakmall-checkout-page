@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { screenSize } from "../../constants/screenSize";
+import { screenSize } from "../../constants/commonScreenSize";
 
 const Wrapper = styled.section`
   width: 100%;

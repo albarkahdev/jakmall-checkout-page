@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import { FiArrowLeft } from "react-icons/fi";
 
-import { screenSize } from "../../constants/screenSize";
+import { screenSize } from "../../constants/commonScreenSize";
 import Text from '../Text/Text';
 import Space from '../Space/Space';
 
