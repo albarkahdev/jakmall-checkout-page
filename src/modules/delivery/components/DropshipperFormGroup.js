@@ -1,6 +1,7 @@
 import styled from "styled-components";
-import useStoreCheckout from '../../../stores/storeCheckout';
+import debounce from "lodash.debounce";
 
+import useStoreCheckout from '../../../stores/storeCheckout';
 import Space from "../../../ui/Space/Space";
 import TextInput from "../../../ui/TextInput/TextInput";
 
@@ -9,7 +10,7 @@ const Wrapper = styled.div`
 `;
 
 const DropshipperFormGroup = ({ register }) => {
-  const { inputErrors, deliveryDetails } = useStoreCheckout();
+  const { inputErrors, deliveryDetails, setDeliveryDetail } = useStoreCheckout();
   const isDropshipper = deliveryDetails.isDropshipper;
 
   return (
@@ -27,6 +28,7 @@ const DropshipperFormGroup = ({ register }) => {
         }}
         error={inputErrors?.["dropshipperName"]?.message || ""}
         disabled={!isDropshipper}
+        onChange={debounce(value => setDeliveryDetail({ dropshipperName: value }), 300)}
       />
       <Space v={10} />
       <TextInput
@@ -54,6 +56,7 @@ const DropshipperFormGroup = ({ register }) => {
         }}
         error={inputErrors?.["dropshipperPhone"]?.message || ""}
         disabled={!isDropshipper}
+        onChange={debounce(value => setDeliveryDetail({ dropshipperPhone: value }), 300)}
       />
     </Wrapper>
   )

@@ -15,7 +15,14 @@ import { useLoadStoreDeliveryDetails } from '../hooks/useLoadStoreDeliveryDetail
 
 const BoxDelivery = () => {
 	const [submitValue, setSubmitValue] = usePrettyPrintedState();
-  const { register, formState: { errors }, handleSubmit, getValues, reset } = useForm();
+  const {
+    register,
+    formState: { errors },
+    handleSubmit,
+    getValues,
+    reset,
+    resetField,
+   } = useForm();
   const {
     deliveryDetails,
     setInputErrors,
@@ -49,7 +56,11 @@ const BoxDelivery = () => {
   const handleCheckboxDropshipper = () => {
     setDeliveryDetail({
       isDropshipper: !isDropshipper,
+      dropshipperName: "",
+      dropshipperPhone: "",
     });
+    resetField("dropshipperName");
+    resetField("dropshipperPhone");
   };
 
   return (

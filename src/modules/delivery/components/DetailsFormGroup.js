@@ -1,6 +1,7 @@
 import styled from "styled-components";
-import useStoreCheckout from '../../../stores/storeCheckout';
+import debounce from "lodash.debounce";
 
+import useStoreCheckout from '../../../stores/storeCheckout';
 import TextInput from "../../../ui/TextInput/TextInput";
 import Space from "../../../ui/Space/Space";
 
@@ -9,7 +10,7 @@ const Wrapper = styled.div`
 `;
 
 const DetailsFormGroup = ({ register }) => {
-  const { inputErrors } = useStoreCheckout();
+  const { inputErrors, setDeliveryDetail } = useStoreCheckout();
   
   return (
     <Wrapper>
@@ -26,6 +27,7 @@ const DetailsFormGroup = ({ register }) => {
           },
         }}
         error={inputErrors?.["email"]?.message || ""}
+        onChange={debounce(value => setDeliveryDetail({ email: value }), 300)}
       />
       <Space v={10} />
       <TextInput
@@ -49,6 +51,7 @@ const DetailsFormGroup = ({ register }) => {
           },
         }}
         error={inputErrors?.["phone"]?.message || ""}
+        onChange={debounce(value => setDeliveryDetail({ phone: value }), 300)}
       />
       <Space v={10} />
       <TextInput
@@ -64,6 +67,7 @@ const DetailsFormGroup = ({ register }) => {
           },
         }}
         error={inputErrors?.["deliveryAddress"]?.message || ""}
+        onChange={debounce(value => setDeliveryDetail({ deliveryAddress: value }), 300)}
       />
     </Wrapper>
   )

@@ -75,6 +75,7 @@ const TextInput = ({
     typeInput,
     label,
     register = () => null,
+    onChange = () => null,
     validation = {},
     error,
     disabled = false,
@@ -100,7 +101,7 @@ const TextInput = ({
 
   const handleTextChange = (e) => {
     const text = e?.target?.value;
-  
+    onChange(text);
     if (text !== '' && !isActive) {
       setIsActive(true);
     } else if (text === '' && isActive) {
