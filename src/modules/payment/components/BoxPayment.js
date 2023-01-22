@@ -9,7 +9,7 @@ import BoxFormAndSummary from "../../../ui/BoxFormAndSummary/BoxFormAndSummary";
 import ShipementFormGroup from "./ShipementFormGroup";
 import PaymentFormGroup from "./PaymentFormGroup";
 import Space from "../../../ui/Space/Space";
-import useStoreCheckout from '../../../stores/storeCheckout';
+import useStoreCheckout from "../../../stores/storeCheckout";
 import { useListCostAndTotal } from "../../../hooks/useListCostAndTotal";
 import { generateOrderId } from "../../../utils/generateRandom";
 import { useListAdditionalSummary } from "../../../hooks/useListAdditionalSummary";

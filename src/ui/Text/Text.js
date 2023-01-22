@@ -74,30 +74,30 @@ const TextCustomGreen = styled.p`
 
 const Text = ({ type = "white-medium", children }) => {
   switch (type) {
-    case "black-medium":
-      return <TextBlackMedium>{children}</TextBlackMedium>;
-    case "black-medium-bold":
-      return <TextBlackMediumBold>{children}</TextBlackMediumBold>;
-    case "black-medium-bold-right":
-      return <TextBlackMediumBoldRight>{children}</TextBlackMediumBoldRight>;
-    case "black-large":
-      return <TextBlackLarge>{children}</TextBlackLarge>;
-    case "white-medium":
-      return <TextWhiteMedium>{children}</TextWhiteMedium>;
-    case "orange-medium":
-      return <TextOrangeMedium>{children}</TextOrangeMedium>;
-    case "orange-large":
-      return <TextOrangeLarge>{children}</TextOrangeLarge>;
-    case "orange-xl":
-      return <TextOrangeXL>{children}</TextOrangeXL>;
-    case "orange-xl-right":
-      return <TextOrangeXLRight>{children}</TextOrangeXLRight>;
-    case "orange-xxl":
-      return <TextOrangeXXL>{children}</TextOrangeXXL>;
-    case "custom-green":
-      return <TextCustomGreen>{children}</TextCustomGreen>;
-    default:
-      return <TextWhiteMedium>{children}</TextWhiteMedium>;
+  case "black-medium":
+    return <TextBlackMedium>{children}</TextBlackMedium>;
+  case "black-medium-bold":
+    return <TextBlackMediumBold>{children}</TextBlackMediumBold>;
+  case "black-medium-bold-right":
+    return <TextBlackMediumBoldRight>{children}</TextBlackMediumBoldRight>;
+  case "black-large":
+    return <TextBlackLarge>{children}</TextBlackLarge>;
+  case "white-medium":
+    return <TextWhiteMedium>{children}</TextWhiteMedium>;
+  case "orange-medium":
+    return <TextOrangeMedium>{children}</TextOrangeMedium>;
+  case "orange-large":
+    return <TextOrangeLarge>{children}</TextOrangeLarge>;
+  case "orange-xl":
+    return <TextOrangeXL>{children}</TextOrangeXL>;
+  case "orange-xl-right":
+    return <TextOrangeXLRight>{children}</TextOrangeXLRight>;
+  case "orange-xxl":
+    return <TextOrangeXXL>{children}</TextOrangeXXL>;
+  case "custom-green":
+    return <TextCustomGreen>{children}</TextCustomGreen>;
+  default:
+    return <TextWhiteMedium>{children}</TextWhiteMedium>;
   }
 }
 

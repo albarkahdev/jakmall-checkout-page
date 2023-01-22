@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 import { screenSize } from "../../constants/commonScreenSize";
 
 const Wrapper = styled.div`

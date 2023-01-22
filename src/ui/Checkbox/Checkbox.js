@@ -1,6 +1,7 @@
-import styled from 'styled-components';
-import Space from '../Space/Space';
-import Text from '../Text/Text';
+import styled from "styled-components";
+
+import Space from "../Space/Space";
+import Text from "../Text/Text";
 
 const Wrapper = styled.div`
   display: flex;

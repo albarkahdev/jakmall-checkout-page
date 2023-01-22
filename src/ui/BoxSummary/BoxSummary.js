@@ -1,11 +1,11 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
-import Text from '../Text/Text';
-import BoxCost from '../BoxCost/BoxCost';
-import CostDescription from '../CostDescription/CostDescription';
-import Button from '../Button/Button';
-import Space from '../Space/Space';
-import AdditionalSummaryDescription from '../AdditionalSummaryDescription/AdditionalSummaryDescription';
+import Text from "../Text/Text";
+import BoxCost from "../BoxCost/BoxCost";
+import CostDescription from "../CostDescription/CostDescription";
+import Button from "../Button/Button";
+import Space from "../Space/Space";
+import AdditionalSummaryDescription from "../AdditionalSummaryDescription/AdditionalSummaryDescription";
 import { screenSize } from "../../constants/commonScreenSize";
 
 const Wrapper = styled.div`

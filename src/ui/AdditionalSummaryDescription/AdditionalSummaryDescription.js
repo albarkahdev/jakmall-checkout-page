@@ -1,6 +1,6 @@
-import Text from '../Text/Text';
-import Space from '../Space/Space';
-import BorderHorizontal from '../BorderHorizontal/BorderHorizontal';
+import Text from "../Text/Text";
+import Space from "../Space/Space";
+import BorderHorizontal from "../BorderHorizontal/BorderHorizontal";
 
 const AdditionalSummaryDescription = ({
   label,

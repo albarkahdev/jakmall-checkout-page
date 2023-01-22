@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 import RadioBox from "../../../ui/RadioBox/RadioBox";
-import useStoreCheckout from '../../../stores/storeCheckout';
+import useStoreCheckout from "../../../stores/storeCheckout";
 import Text from "../../../ui/Text/Text";
 import { screenSize } from "../../../constants/commonScreenSize";
 

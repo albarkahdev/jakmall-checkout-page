@@ -1,5 +1,5 @@
-import styled from 'styled-components';
-import Text from '../Text/Text';
+import styled from "styled-components";
+import Text from "../Text/Text";
 
 const Wrapper = styled.div`
   display: grid;
@@ -13,31 +13,31 @@ const WrapperText = styled.div`
 
 const CostDescription = ({ label, value, type = "normal" }) => {
   switch (type) {
-    case "total":
-      return (
-        <Wrapper>
-          <Text type="orange-xl">{label}</Text>
-          <Text type="orange-xl-right">{value}</Text>
-        </Wrapper>
-      );
-    case "shipment-provider":
-      return (
-        <Wrapper>
-          <WrapperText>
-            <Text type="black-medium-bold">{label}</Text>
-            <Text type="black-medium">&nbsp;shipment</Text>
-          </WrapperText>
-          <Text type="black-medium-bold-right">{value}</Text>
-        </Wrapper>
-      );
+  case "total":
+    return (
+      <Wrapper>
+        <Text type="orange-xl">{label}</Text>
+        <Text type="orange-xl-right">{value}</Text>
+      </Wrapper>
+    );
+  case "shipment-provider":
+    return (
+      <Wrapper>
+        <WrapperText>
+          <Text type="black-medium-bold">{label}</Text>
+          <Text type="black-medium">&nbsp;shipment</Text>
+        </WrapperText>
+        <Text type="black-medium-bold-right">{value}</Text>
+      </Wrapper>
+    );
   
-    default:
-      return (
-        <Wrapper>
-          <Text type="black-medium">{label}</Text>
-          <Text type="black-medium-bold-right">{value}</Text>
-        </Wrapper>
-      );
+  default:
+    return (
+      <Wrapper>
+        <Text type="black-medium">{label}</Text>
+        <Text type="black-medium-bold-right">{value}</Text>
+      </Wrapper>
+    );
   }
 };
 

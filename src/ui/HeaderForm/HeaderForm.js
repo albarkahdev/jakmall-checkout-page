@@ -1,8 +1,8 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
-import Text from '../Text/Text';
-import Checkbox from '../Checkbox/Checkbox';
-import { screenSize } from '../../constants/commonScreenSize';
+import Text from "../Text/Text";
+import Checkbox from "../Checkbox/Checkbox";
+import { screenSize } from "../../constants/commonScreenSize";
 
 const Wrapper = styled.div`
   display: flex;

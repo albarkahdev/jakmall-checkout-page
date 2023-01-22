@@ -1,5 +1,4 @@
 import BoxContent from "../../../ui/BoxContent/BoxContent";
-import BoxForm from "../../../ui/BoxForm/BoxForm";
 import BoxSummary from "../../../ui/BoxSummary/BoxSummary";
 import HeaderForm from "../../../ui/HeaderForm/HeaderForm";
 import BoxNavigation from "../../../ui/BoxNavigation/BoxNavigation";
@@ -12,24 +11,6 @@ import { useListCostAndTotal } from "../../../hooks/useListCostAndTotal";
 import useStoreCheckout from "../../../stores/storeCheckout";
 import generateDescriptionByShipmentProvider from "../../../utils/generateDescriptionByShipmentProvider";
 import { useListAdditionalSummary } from "../../../hooks/useListAdditionalSummary";
-
-const listCost = [
-  {
-    label: "Cost of goods",
-    value: "500,000",
-    type: "normal",
-  },
-  {
-    label: "Dropshipping Fee",
-    value: "5,900",
-    type: "normal",
-  },
-  {
-    label: "GO-SEND",
-    value: "15,000",
-    type: "shipment-provider",
-  },
-];
 
 const BoxCompleteCheckout = () => {
   const { orderId, shipment, resetStoreCheckout } = useStoreCheckout();

@@ -1,9 +1,9 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 import { FiArrowLeft } from "react-icons/fi";
 
 import { screenSize } from "../../constants/commonScreenSize";
-import Text from '../Text/Text';
-import Space from '../Space/Space';
+import Text from "../Text/Text";
+import Space from "../Space/Space";
 
 const Wrapper = styled.div`
   display: flex;

@@ -5,7 +5,7 @@ import Stepper from "../../../ui/Stepper/Stepper";
 import BoxCompleteCheckout from "../../completeCheckout/components/BoxCompleteCheckout";
 import BoxDeliveryDetails from "../../delivery/components/BoxDelivery";
 import BoxPayment from "../../payment/components/BoxPayment";
-import useStoreCheckout from '../../../stores/storeCheckout';
+import useStoreCheckout from "../../../stores/storeCheckout";
 
 const Checkout = () => {
   const {

@@ -47,7 +47,7 @@ export const useListCostAndTotal = () => {
       total += parseInt(currentCost, 10);
     }
 
-    return total.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");;
+    return total.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
   }, [listCost]);
 
   return [listCost, totalCost];

@@ -1,9 +1,9 @@
-import { useMemo } from 'react';
-import styled from 'styled-components';
+import { useMemo } from "react";
+import styled from "styled-components";
 
 import { FiCheck, FiX } from "react-icons/fi";
-import { useState } from 'react';
-import Text from '../Text/Text';
+import { useState } from "react";
+import Text from "../Text/Text";
 
 const colorByType = {
   normal: {
@@ -52,7 +52,7 @@ const LabelInput = styled.label`
   pointer-events: none;
   position: absolute;
   transform: ${
-    props => props.isActive
+  props => props.isActive
     ? "translate(0, 12px) scale(0.75)"
     : "translate(0, 26px) scale(1)"};
   transform-origin: top left;
@@ -77,21 +77,21 @@ const XIcon = styled(FiX)`
 `;
 
 const TextInput = ({
-    inputKey,
-    type,
-    typeInput,
-    label,
-    register = () => null,
-    onChange = () => null,
-    validation = {},
-    error,
-    disabled = false,
-    isNotEmpty,
-    isMultiline = false,
-    rows = "3",
-    isCounterAvailable = false,
-    counterNumber = 0,
-  }) => {
+  inputKey,
+  type,
+  typeInput,
+  label,
+  register = () => null,
+  onChange = () => null,
+  validation = {},
+  error,
+  disabled = false,
+  isNotEmpty,
+  isMultiline = false,
+  rows = "3",
+  isCounterAvailable = false,
+  counterNumber = 0,
+}) => {
   const [isActive, setIsActive] = useState(isNotEmpty);
 
   const typeTextInput = useMemo(() => {
@@ -114,14 +114,15 @@ const TextInput = ({
   const handleTextChange = (e) => {
     const text = e?.target?.value;
     onChange(text);
-    if (text !== '' && !isActive) {
+    if (text !== "" && !isActive) {
       setIsActive(true);
-    } else if (text === '' && isActive) {
+    } else if (text === "" && isActive) {
       setIsActive(false);
     }
   }
 
-  const colorBase = colorByType.hasOwnProperty(typeTextInput)
+  // eslint-disable-next-line no-prototype-builtins
+  const colorBase = colorByType?.hasOwnProperty(typeTextInput)
     ? colorByType[typeTextInput]
     : colorByType["normal"];
 
@@ -129,35 +130,35 @@ const TextInput = ({
     <Wrapper>
       {
         isMultiline
-        ? (
-          <Textarea
-            borderColor={colorBase.borderColor}
-            type={typeInput}
-            {...register(
-              inputKey,
-              {
-                onChange: handleTextChange,
-                ...validation,
-              }
-            )}
-            disabled={disabled}
-            rows={rows}
-          />
-        )
-        : (
-          <Input
-            borderColor={colorBase.borderColor}
-            type={typeInput}
-            {...register(
-              inputKey,
-              {
-                onChange: handleTextChange,
-                ...validation,
-              }
-            )}
-            disabled={disabled}
-          />
-        )
+          ? (
+            <Textarea
+              borderColor={colorBase.borderColor}
+              type={typeInput}
+              {...register(
+                inputKey,
+                {
+                  onChange: handleTextChange,
+                  ...validation,
+                }
+              )}
+              disabled={disabled}
+              rows={rows}
+            />
+          )
+          : (
+            <Input
+              borderColor={colorBase.borderColor}
+              type={typeInput}
+              {...register(
+                inputKey,
+                {
+                  onChange: handleTextChange,
+                  ...validation,
+                }
+              )}
+              disabled={disabled}
+            />
+          )
       }
       <LabelInput
         isActive={isActive}

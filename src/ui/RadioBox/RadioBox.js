@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 import { FiCheck } from "react-icons/fi";
 
 const colorBySelect = {
@@ -39,7 +39,7 @@ const LabelInput = styled.label`
   pointer-events: none;
   position: absolute;
   transform: ${
-    props => props.isActive
+  props => props.isActive
     ? "translate(0, 12px) scale(0.75)"
     : "translate(0, 26px) scale(1)"};
   transform-origin: top left;
@@ -57,11 +57,11 @@ const CheckIcon = styled(FiCheck)`
 `;
 
 const RadioBox = ({
-    isSelected,
-    label,
-    value = "",
-    onClick,
-  }) => {
+  isSelected,
+  label,
+  value = "",
+  onClick,
+}) => {
   const colorBase = isSelected
     ? colorBySelect.selected
     : colorBySelect.normal;

@@ -1,5 +1,5 @@
-import { useRef, useEffect } from 'react';
-import { useForm } from 'react-hook-form';
+import { useRef, useEffect } from "react";
+import { useForm } from "react-hook-form";
 
 import BoxContent from "../../../ui/BoxContent/BoxContent";
 import BoxForm from "../../../ui/BoxForm/BoxForm";
@@ -9,20 +9,20 @@ import BoxNavigation from "../../../ui/BoxNavigation/BoxNavigation";
 import FormGroup from "./FormGroup";
 import BoxFormAndSummary from "../../../ui/BoxFormAndSummary/BoxFormAndSummary";
 import { usePrettyPrintedState } from "../../../hooks/usePrettyPrintedState";
-import useStoreCheckout from '../../../stores/storeCheckout';
-import { useListCostAndTotal } from '../../../hooks/useListCostAndTotal';
-import { useLoadStoreDeliveryDetails } from '../hooks/useLoadStoreDeliveryDetails';
+import useStoreCheckout from "../../../stores/storeCheckout";
+import { useListCostAndTotal } from "../../../hooks/useListCostAndTotal";
+import { useLoadStoreDeliveryDetails } from "../hooks/useLoadStoreDeliveryDetails";
 
 const BoxDelivery = () => {
-	const [submitValue, setSubmitValue] = usePrettyPrintedState();
+  // eslint-disable-next-line no-unused-vars
+  const [_, setSubmitValue] = usePrettyPrintedState();
   const {
     register,
     formState: { errors },
     handleSubmit,
-    getValues,
     reset,
     resetField,
-   } = useForm();
+  } = useForm();
   const {
     deliveryDetails,
     setInputErrors,
@@ -44,21 +44,21 @@ const BoxDelivery = () => {
     setCurrentStep(2);
   }
 
-	const onSubmit = (data) => {
-		console.log(JSON.stringify(data));
-		setSubmitValue(data);
+  const onSubmit = (data) => {
+    console.log(JSON.stringify(data));
+    setSubmitValue(data);
     onChangeSubmit();
-	}
+  }
 
-	const formRef = useRef(null)
+  const formRef = useRef(null)
 
-	const submit = () => {
-		if (formRef.current) {
-			formRef.current.dispatchEvent(
-				new Event('submit', { cancelable: true, bubbles: true })
-			)
-		}
-	};
+  const submit = () => {
+    if (formRef.current) {
+      formRef.current.dispatchEvent(
+        new Event("submit", { cancelable: true, bubbles: true })
+      )
+    }
+  };
 
   const handleCheckboxDropshipper = () => {
     setDeliveryDetail({

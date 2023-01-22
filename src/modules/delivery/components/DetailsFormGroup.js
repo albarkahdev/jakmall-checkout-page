@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import debounce from "lodash.debounce";
 
-import useStoreCheckout from '../../../stores/storeCheckout';
+import useStoreCheckout from "../../../stores/storeCheckout";
 import TextInput from "../../../ui/TextInput/TextInput";
 import Space from "../../../ui/Space/Space";
 

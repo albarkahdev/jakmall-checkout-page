@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 import CircleOrange from "../CircleOrange/CircleOrange";
 import Space from "../Space/Space";
-import Text from '../Text/Text';
+import Text from "../Text/Text";
 
 const Wrapper = styled.div`
   display: flex;
